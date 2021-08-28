@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve" noupdate="1">
+
+    <t t-extend="PaymentScreenWidget">
+        <t t-jquery=".payment-buttons div:eq(1)" t-operation="replace">
+            <t t-if='widget.pos.config.module_account'>
+                <t t-if='widget.pos.get_order()'>
+                    <div t-attf-class='button js_pos_venta js_give_invoice #{ widget.pos.get_order().is_to_invoice() ? "highlight" : ""} ' edoc_type="pos_venta">
+                        <i class='fa fa-file-text-o' />
+ POS Ticket
+                    </div>
+                </t>
+            </t>
+        </t>
+        <t t-jquery=".payment-buttons div:eq(1)" t-operation="after">
+            <t t-if='widget.pos.config.module_account'>
+                <t t-if='widget.pos.get_order()'>
+                    <div t-attf-class='button js_factura js_give_invoice #{ widget.pos.get_order().is_to_invoice() ? "highlight" : ""} ' edoc_type="factura">
+                        <i class='fa fa-file-text-o' />
+ Factura
+                    </div>
+                </t>
+            </t>
+        </t>
+        <t t-jquery=".payment-buttons div:eq(1)" t-operation="after">
+            <t t-if='widget.pos.config.module_account'>
+                <t t-if='widget.pos.get_order()'>
+                    <div t-attf-class='button js_nota_venta js_give_invoice #{ widget.pos.get_order().is_to_invoice() ? "highlight" : ""} ' edoc_type="nota_venta">
+                        <i class='fa fa-file-text-o' />
+ Boleta
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>
+</templates>

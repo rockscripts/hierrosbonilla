@@ -1,0 +1,11 @@
+#dian_tipo_documento {
+    margin-bottom: 10px;
+}
+
+.o_menu_systray li:nth-child(3) {
+    display: none
+}
+
+input[name='vat_dv'] {
+    width: 36px!important
+}

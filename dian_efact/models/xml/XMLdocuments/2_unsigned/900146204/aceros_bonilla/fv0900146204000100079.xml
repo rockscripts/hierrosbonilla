@@ -1,0 +1,874 @@
+<?xml version="1.0" ?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+   
+  
+   <ext:UBLExtensions>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent>
+            
+        
+            <sts:DianExtensions>
+               
+          
+               <sts:InvoiceControl>
+                  
+            
+                  <sts:InvoiceAuthorization>18763004818011</sts:InvoiceAuthorization>
+                  
+            
+                  <sts:AuthorizationPeriod>
+                     
+              
+                     <cbc:StartDate>2020-03-04</cbc:StartDate>
+                     
+              
+                     <cbc:EndDate>2021-09-04</cbc:EndDate>
+                     
+            
+                  </sts:AuthorizationPeriod>
+                  
+            
+                  <sts:AuthorizedInvoices>
+                     
+              
+                     <sts:Prefix>EFE</sts:Prefix>
+                     
+              
+                     <sts:From>1</sts:From>
+                     
+              
+                     <sts:To>15000</sts:To>
+                     
+            
+                  </sts:AuthorizedInvoices>
+                  
+          
+               </sts:InvoiceControl>
+               
+          
+               <sts:InvoiceSource>
+                  
+            
+                  <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+                  
+          
+               </sts:InvoiceSource>
+               
+          
+               <sts:SoftwareProvider>
+                  
+            
+                  <sts:ProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</sts:ProviderID>
+                  
+            
+                  <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">cdb121c8-52b5-442b-8072-02f70297c09f</sts:SoftwareID>
+                  
+          
+               </sts:SoftwareProvider>
+               
+          
+               <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">c7d7bffbf0f5de7781a1319876d4b0736c78b435bb63cede637ed7a61eb610ef1368447a497cb3c39362b0e97ecdbf77</sts:SoftwareSecurityCode>
+               
+          
+               <sts:AuthorizationProvider>
+                  
+            
+                  <sts:AuthorizationProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="4" schemeName="31">800197268</sts:AuthorizationProviderID>
+                  
+          
+               </sts:AuthorizationProvider>
+               
+          
+               <sts:QRCode>https://catalogo-vpfe.dian.gov.co/document/searchqr?documentkey=3482c0ac860a9dfc386b0546e3d97ba75f2c062b3555951655f5448215521e353a3b8400a208a83bd93686355e76984e</sts:QRCode>
+               
+        
+            </sts:DianExtensions>
+            
+      
+         </ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent/>
+         
+    
+      </ext:UBLExtension>
+      
+  
+   </ext:UBLExtensions>
+   
+  
+   <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+   
+  
+   <cbc:CustomizationID>10</cbc:CustomizationID>
+   
+  
+   <cbc:ProfileID>DIAN 2.1</cbc:ProfileID>
+   
+  
+   <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+   
+  
+   <cbc:ID>EFE00079</cbc:ID>
+   
+  
+   <cbc:UUID schemeID="1" schemeName="CUFE-SHA384">3482c0ac860a9dfc386b0546e3d97ba75f2c062b3555951655f5448215521e353a3b8400a208a83bd93686355e76984e</cbc:UUID>
+   
+  
+   <cbc:IssueDate>2020-05-23</cbc:IssueDate>
+   
+  
+   <cbc:IssueTime>13:33:11-05:00</cbc:IssueTime>
+   
+  
+   <cbc:DueDate>2020-05-23</cbc:DueDate>
+   
+  
+   <cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+   
+  
+   <cbc:Note>
+Factura:  UN MILLON CIENTO OCHENTA Y  CUATRO MIL NOVECIENTOS NOVENTA
+
+
+CUFE: ***************
+NumFac : EFE00079
+FecFac : 2020-05-23
+HorFac : 13:33:11-05:00
+ValFac : 995790.00
+CodImp1 : 01
+ValImp1 : 189200.10
+CodImp2 : 04
+ValImp2 : 0.00
+CodImp3 : 03
+ValImp3 : 0.00
+ValTotFac : 1184990.10
+NitOFE : 900146204
+NumAdq : 901063647
+ClTec : 1eaed1e2512d8a863ce6e62f893f1492944dee602a1d5d58f818b98ea6ab1eb4
+TipAmbiente : 1
+
+CUFE cadena: EFE000792020-05-2313:33:11-05:00995790.0001189200.10040.00030.001184990.109001462049010636471eaed1e2512d8a863ce6e62f893f1492944dee602a1d5d58f818b98ea6ab1eb41
+CUFE sha384: 3482c0ac860a9dfc386b0546e3d97ba75f2c062b3555951655f5448215521e353a3b8400a208a83bd93686355e76984e
+</cbc:Note>
+   
+  
+   <cbc:DocumentCurrencyCode listAgencyName="United Nations Economic Commission for Europe" listID="ISO 4217 Alpha" listName="Currency">COP</cbc:DocumentCurrencyCode>
+   
+  
+   <cbc:LineCountNumeric>3</cbc:LineCountNumeric>
+   
+  
+   <cac:AccountingSupplierParty>
+      
+    
+      <cbc:AdditionalAccountID>2</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cbc:IndustryClassificationCode>4363</cbc:IndustryClassificationCode>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>Aceros Bonilla SAS</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Calle 12 # 15 99</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>Aceros Bonilla SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-12</cbc:TaxLevelCode>
+            
+        
+            <cac:RegistrationAddress>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Calle 12 # 15 99</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:RegistrationAddress>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>Aceros Bonilla SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</cbc:CompanyID>
+            
+        
+            <cac:CorporateRegistrationScheme>
+               
+          
+               <cbc:ID>EFE</cbc:ID>
+               
+          
+               <cbc:Name>1697840</cbc:Name>
+               
+        
+            </cac:CorporateRegistrationScheme>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>34173 86 - 286 92 83</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>contabilidad@acerosbonilla.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingSupplierParty>
+   
+  
+   <cac:AccountingCustomerParty>
+      
+    
+      <cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cac:PartyIdentification>
+            
+        
+            <cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="3" schemeName="31">901063647</cbc:ID>
+            
+      
+         </cac:PartyIdentification>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>CONSTRUCTORA PAIS SAS</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>15176</cbc:ID>
+               
+          
+               <cbc:CityName>Chiquinquirá</cbc:CityName>
+               
+          
+               <cbc:PostalZone>15176</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Chiquinquirá</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>15</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>CALLE 18 # 7 28                                                                                     </cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>CONSTRUCTORA PAIS SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="3" schemeName="31">901063647</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-11</cbc:TaxLevelCode>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>CONSTRUCTORA PAIS SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="3" schemeName="31">901063647</cbc:CompanyID>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>3105602030</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>constructorapais@hotmail.cm                                                                         </cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingCustomerParty>
+   
+  
+   <cac:PaymentMeans>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:PaymentMeansCode>10</cbc:PaymentMeansCode>
+      
+    
+      <cbc:PaymentDueDate>2020-05-23</cbc:PaymentDueDate>
+      
+    
+      <cbc:PaymentID>SO1728</cbc:PaymentID>
+      
+  
+   </cac:PaymentMeans>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">189200.10</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">995790.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">189200.10</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>19.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>04</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>03</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:LegalMonetaryTotal>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">995790.00</cbc:LineExtensionAmount>
+      
+    
+      <cbc:TaxExclusiveAmount currencyID="COP">995790.00</cbc:TaxExclusiveAmount>
+      
+    
+      <cbc:TaxInclusiveAmount currencyID="COP">1184990.10</cbc:TaxInclusiveAmount>
+      
+    
+      <cbc:AllowanceTotalAmount currencyID="COP">0.00</cbc:AllowanceTotalAmount>
+      
+    
+      <cbc:PayableAmount currencyID="COP">1184990.10</cbc:PayableAmount>
+      
+  
+   </cac:LegalMonetaryTotal>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>2.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">75630.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">14369.70</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">75630.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">14369.70</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>SOLDADURA MIG 0 35 X 5KGS INDURA</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">37815.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>2</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>2.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">75630.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">14369.70</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">75630.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">14369.70</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>SOLDADURA MIG 0 35 X 5KGS INDURA</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">37815.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>3</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>15.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">844530.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">160460.70</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">844530.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">160460.70</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>TUBO CERRA NEGRO 2&quot; CAL 0 080</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">56302.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+
+</Invoice>

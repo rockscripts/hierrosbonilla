@@ -1,0 +1,887 @@
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+   
+  
+   <ext:UBLExtensions>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent>
+            
+        
+            <sts:DianExtensions>
+               
+          
+               <sts:InvoiceControl>
+                  
+            
+                  <sts:InvoiceAuthorization>18764001986205</sts:InvoiceAuthorization>
+                  
+            
+                  <sts:AuthorizationPeriod>
+                     
+              
+                     <cbc:StartDate>2020-08-11</cbc:StartDate>
+                     
+              
+                     <cbc:EndDate>2021-08-11</cbc:EndDate>
+                     
+            
+                  </sts:AuthorizationPeriod>
+                  
+            
+                  <sts:AuthorizedInvoices>
+                     
+              
+                     <sts:Prefix>FAB</sts:Prefix>
+                     
+              
+                     <sts:From>1</sts:From>
+                     
+              
+                     <sts:To>15000</sts:To>
+                     
+            
+                  </sts:AuthorizedInvoices>
+                  
+          
+               </sts:InvoiceControl>
+               
+          
+               <sts:InvoiceSource>
+                  
+            
+                  <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+                  
+          
+               </sts:InvoiceSource>
+               
+          
+               <sts:SoftwareProvider>
+                  
+            
+                  <sts:ProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="2" schemeName="31">901191169</sts:ProviderID>
+                  
+            
+                  <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">bb9712ef-56d6-4ca8-8e38-9e14a6a6aa12</sts:SoftwareID>
+                  
+          
+               </sts:SoftwareProvider>
+               
+          
+               <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">d25e28927ce4aa1e633722d2ae7004d5e821500b348efe13a51b401df65e3c5780bb10e3bffceaa211652dfcb053dedf</sts:SoftwareSecurityCode>
+               
+          
+               <sts:AuthorizationProvider>
+                  
+            
+                  <sts:AuthorizationProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="4" schemeName="31">800197268</sts:AuthorizationProviderID>
+                  
+          
+               </sts:AuthorizationProvider>
+               
+          
+               <sts:QRCode>https://catalogo-vpfe.dian.gov.co/document/searchqr?documentkey=1448392ce0f8119ba0a5e5c501d78dac1dbf2555285cba1e828b99a8c76aa8709940a61c31b3bdb6bb15e402e2087eb3</sts:QRCode>
+               
+        
+            </sts:DianExtensions>
+            
+      
+         </ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent><ds:Signature Id="xmldsig-112bd466-f6c7-11eb-a377-65251fdb9bb1">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></ds:SignatureMethod>
+<ds:Reference Id="xmldsig-112bd466-f6c7-11eb-a377-65251fdb9bb1-ref0" URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod>
+<ds:DigestValue>4Q9cK+U1erf+o+jxWqu5jHkK7q+bawTTcY6x5ixyVpk=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-112bd466-f6c7-11eb-a377-65251fdb9bb1-signedprops">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod>
+<ds:DigestValue>hp/MN/MYWLWWaPIE3IT11WLO69ZW4Xjsxwl27efDpTM=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="xmldsig-112bd466-f6c7-11eb-a377-65251fdb9bb1-sigvalue">D+gtvasWZGGNn5uOUQbFKd+6eA9WkgEMSMveSiApoz0eD3gt/IR6an0PEsqv6szb
+c5AWbFKI60xocL9hsHpBLErI7330vtW45r2eQRo2pc7YtZj6drSodiQvOneUuY7N
+gTst84B+QsgKe+t91lYfaVQdIMRn0VpdbL6en3sKjnM41wTnRiT4otCKnCxF1I1Z
+rQaPbjbmTtg0cGRZExY1OXo8IkRQ8PBaWodJyCX7TIsbFJRE+UkBZVDuX8+3NYLs
+xx2aZfIX3CvVs74UOzkNrxOyIxFRYHyyq1fCS4trcmZRYKfAx7nT8gbCBf3d0RCv
+ggtM+Yg1qC/gmoq2PSJiRA==</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>MIIIkzCCBnugAwIBAgIIFGM3aNOXnCQwDQYJKoZIhvcNAQELBQAwgbYxIzAhBgkq
+hkiG9w0BCQEWFGluZm9AYW5kZXNzY2QuY29tLmNvMSYwJAYDVQQDEx1DQSBBTkRF
+UyBTQ0QgUy5BLiBDbGFzZSBJSSB2MjEwMC4GA1UECxMnRGl2aXNpb24gZGUgY2Vy
+dGlmaWNhY2lvbiBlbnRpZGFkIGZpbmFsMRIwEAYDVQQKEwlBbmRlcyBTQ0QxFDAS
+BgNVBAcTC0JvZ290YSBELkMuMQswCQYDVQQGEwJDTzAeFw0yMTA4MDQwNTAwMDBa
+Fw0yMjA4MDQwNDU5MDBaMIIBQTEdMBsGA1UECRMUQ0FMTEUgNzEgQSBOIDI5IEIg
+MTQxLDAqBgkqhkiG9w0BCQEWHWRtb250ZXNAbWRzY29uc3VsdGluZ2xhd3MuY29t
+MSIwIAYDVQQDDBlNRFMgQ09OU1VMVElORyAmIExBV1MgU0FTMRMwEQYDVQQFEwo5
+MDExOTExNjkyMTYwNAYDVQQMEy1FbWlzb3IgRmFjdHVyYSBFbGVjdHJvbmljYSAt
+IFBlcnNvbmEgSnVyaWRpY2ExOjA4BgNVBAsTMUVtaXRpZG8gcG9yIEFuZGVzIFND
+RCBBYyAyNiA2OUMgMDMgVG9ycmUgQiBPZiA3MDExETAPBgNVBAoTCEdFUkVOQ0lB
+MQ8wDQYDVQQHEwZCT0dPVEExFDASBgNVBAgTC0JPR09UQSBELkMuMQswCQYDVQQG
+EwJDTzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPIu1SjBMdcoY3j2
+9SCeT66O5Snb0zS9/1itc3nlpaIfLfnFw/9GaNbc+ygt60WJ57oeeP2YDQKTsnpa
+uZTWYTuumv2B89fptNGjQyii3VI5CdTwcsFSPH4kLB/B1HkO/naSCshGIyjA07fO
+yU6fxQAjmeFANHykklqFdfL69YUugu55W3soaR5nKH3FBBUGwLYfxzgv6MH7bo01
+1WVDMXEh5eydIdr+zQfOjEHyV71EMY5HgoZwC2yiPegSkk5SoURpukx6mWRmZekn
+ShA1dKHNBOrws6HozaSPVGkFdGmVO9+DnX461dL0xOqfUQCuVo2Au8y8aHkYpVaH
+BrjuUasCAwEAAaOCAxUwggMRMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUOldQ
+0HcbPtaL6v+Xmdf/hAJIKQ8wNwYIKwYBBQUHAQEEKzApMCcGCCsGAQUFBzABhhto
+dHRwOi8vb2NzcC5hbmRlc3NjZC5jb20uY28wKAYDVR0RBCEwH4EdZG1vbnRlc0Bt
+ZHNjb25zdWx0aW5nbGF3cy5jb20wggHyBgNVHSAEggHpMIIB5TCCAeEGDSsGAQQB
+gfRIAQIGAQcwggHOMIIBhgYIKwYBBQUHAgIwggF4HoIBdABMAGEAIAB1AHQAaQBs
+AGkAegBhAGMAaQDzAG4AIABkAGUAIABlAHMAdABlACAAYwBlAHIAdABpAGYAaQBj
+AGEAZABvACAAZQBzAHQA4QAgAHMAdQBqAGUAdABhACAAYQAgAGwAYQBzACAAUABv
+AGwA7QB0AGkAYwBhAHMAIABkAGUAIABDAGUAcgB0AGkAZgBpAGMAYQBkAG8AIABk
+AGUAIABGAGEAYwB0AHUAcgBhAGMAaQDzAG4AIABFAGwAZQBjAHQAcgDzAG4AaQBj
+AGEAIAAoAFAAQwApACAAeQAgAEQAZQBjAGwAYQByAGEAYwBpAPMAbgAgAGQAZQAg
+AFAAcgDhAGMAdABpAGMAYQBzACAAZABlACAAQwBlAHIAdABpAGYAaQBjAGEAYwBp
+APMAbgAgACgARABQAEMAKQAgAGUAcwB0AGEAYgBsAGUAYwBpAGQAYQBzACAAcABv
+AHIAIABBAG4AZABlAHMAIABTAEMARDBCBggrBgEFBQcCARY2aHR0cHM6Ly93d3cu
+YW5kZXNzY2QuY29tLmNvL2RvY3MvRFBDX0FuZGVzU0NEX1YzLjYucGRmMB0GA1Ud
+JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDA5BgNVHR8EMjAwMC6gLKAqhihodHRw
+Oi8vY3JsLmFuZGVzc2NkLmNvbS5jby9DbGFzZUlJdjIuY3JsMB0GA1UdDgQWBBRD
+e9kz5u9/HBWXE3n9bvQL1u+EJzAOBgNVHQ8BAf8EBAMCBeAwDQYJKoZIhvcNAQEL
+BQADggIBAJz97TayJ55m8cByFRbBm2xw7xZVFTnZyxU8mnJh6MibQmdnC5jbhWu2
+vx29swbH4s7ycEzRetu72YcxHjMM9d8ql8CZR5Dk4bS5f+PcZuTjeNpFNTzZRLw7
+LOZvwFg0RLPNzR237nMj55pp0n45BFUrubNLcXRGe8i+WBX/usQwxBrqUqKFpseb
+va75NcesagTT8WYQVCg6d9rFys11xg0dhDxZFklG5Pc+J4eAIUlLfaHwt/oc6DyZ
+df6uvo4GrSyJivXjgetiFgvov9DvSuywqwG3ThCom9BrmmL3i0Rx/iDI4I7nG7V9
+YxcQTLzxNfhR1NGK0jyn0iqxYpeg3WxzfJagLcyKAeKcPAtMbYD5FHeLDR/pmQsk
+ONnSBQ4P4PvpNMfL1GMAP4VCHEnP6Z9FVwh5ChyTBBzZtJet+QETzrMXWKRH7Otb
+aX1flhxD62w/cb7V04NCvJLUXBbhwxWNFCIT4KqMIYOCOgVjI+O5BQFHgAtfpxop
+SKOJH8cYZ8mhJnUagarXTlBAHmIYKhCFjlHcL1QFUMPCctrm0oWBxWFvE/lwhiKP
+sA/lCQ7h3apP1n2R7qOvdW/Kh0btv9mzwPz1ObjWRQnzcqDLYJQfSKty677RbJpG
+n8Cs7E/ha/St6LfcIngN3c6agg8bKUALhwORXnTpAR+gGY9/ZKdI</ds:X509Certificate>
+<ds:X509SubjectName>c=CO,st=BOGOTA D.C.,l=BOGOTA,o=GERENCIA,ou=Emitido por Andes SCD Ac 26 69C 03 Torre B Of 701,title=Emisor Factura Electronica - Persona Juridica,serialNumber=9011911692,cn=MDS CONSULTING &amp; LAWS SAS,1.2.840.113549.1.9.1=dmontes@mdsconsultinglaws.com,street=CALLE 71 A N 29 B 14</ds:X509SubjectName>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>c=CO,l=Bogota D.C.,o=Andes SCD,ou=Division de certificacion entidad final,cn=CA ANDES SCD S.A. Clase II v2,1.2.840.113549.1.9.1=info@andesscd.com.co</ds:X509IssuerName>
+<ds:X509SerialNumber>1469078826818968612</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+</ds:KeyInfo>
+<ds:Object><xades:QualifyingProperties Target="#xmldsig-112bd466-f6c7-11eb-a377-65251fdb9bb1"><xades:SignedProperties Id="xmldsig-112bd466-f6c7-11eb-a377-65251fdb9bb1-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2021-08-06T10:00:41.213643-05:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>tvINuQWfH/O3AT4KJq+ZN7cA7zNlbDHRbGgdXmfjF5w=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>c=CO,l=Bogota D.C.,o=Andes SCD,ou=Division de certificacion entidad final,cn=CA ANDES SCD S.A. Clase II v2,1.2.840.113549.1.9.1=info@andesscd.com.co</ds:X509IssuerName><ds:X509SerialNumber>1469078826818968612</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://facturaelectronica.dian.gov.co/politicadefirma/v2/politicadefirmav2.pdf</xades:Identifier><xades:Description>Política de firma para facturas electrónicas de la República de Colombia</xades:Description></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>dMoMvtcG5aIzgYo0tIsSQeVJBDnUnfSOfBpxXrmor0Y=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier><xades:SignerRole><xades:ClaimedRoles><xades:ClaimedRole>supplier</xades:ClaimedRole></xades:ClaimedRoles></xades:SignerRole></xades:SignedSignatureProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+  
+   </ext:UBLExtensions>
+   
+  
+   <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+   
+  
+   <cbc:CustomizationID>10</cbc:CustomizationID>
+   
+  
+   <cbc:ProfileID>DIAN 2.1</cbc:ProfileID>
+   
+  
+   <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+   
+  
+   <cbc:ID>FAB67</cbc:ID>
+   
+  
+   <cbc:UUID schemeID="1" schemeName="CUFE-SHA384">1448392ce0f8119ba0a5e5c501d78dac1dbf2555285cba1e828b99a8c76aa8709940a61c31b3bdb6bb15e402e2087eb3</cbc:UUID>
+   
+  
+   <cbc:IssueDate>2021-08-06</cbc:IssueDate>
+   
+  
+   <cbc:IssueTime>15:00:41-05:00</cbc:IssueTime>
+   
+  
+   <cbc:DueDate>2021-08-11</cbc:DueDate>
+   
+  
+   <cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+   
+  
+   <cbc:Note>
+Factura:  NOVECIENTOS CUARENTA Y  DOS MIL SEISCIENTOS CINCUENTA Y  SEIS
+
+
+CUFE: ***************
+NumFac : FAB67
+FecFac : 2021-08-06
+HorFac : 15:00:41-05:00
+ValFac : 792148.00
+CodImp1 : 01
+ValImp1 : 150508.12
+CodImp2 : 04
+ValImp2 : 0.00
+CodImp3 : 03
+ValImp3 : 0.00
+ValTotFac : 942656.12
+NitOFE : 901191169
+NumAdq : 900063077
+ClTec : 487a2d363170bd506704df42a0bbb139d49766d17e81ebd309128c0d909f4957
+TipAmbiente : 1
+
+CUFE cadena: FAB672021-08-0615:00:41-05:00792148.0001150508.12040.00030.00942656.12901191169900063077487a2d363170bd506704df42a0bbb139d49766d17e81ebd309128c0d909f49571
+CUFE sha384: 1448392ce0f8119ba0a5e5c501d78dac1dbf2555285cba1e828b99a8c76aa8709940a61c31b3bdb6bb15e402e2087eb3
+</cbc:Note>
+   
+  
+   <cbc:DocumentCurrencyCode listAgencyName="United Nations Economic Commission for Europe" listID="ISO 4217 Alpha" listName="Currency">COP</cbc:DocumentCurrencyCode>
+   
+  
+   <cbc:LineCountNumeric>1</cbc:LineCountNumeric>
+   
+  
+   <cac:AccountingSupplierParty>
+      
+    
+      <cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cbc:IndustryClassificationCode>6220</cbc:IndustryClassificationCode>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>MDS CONSULTING &amp; LAWS SAS</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c.  (CO)</cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Transversal 15 Este # 100B-70 Km 5 Via La Calera-Rodamonte Buzon 9A-#1 Bogotá D.C.</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>MDS CONSULTING &amp; LAWS SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="2" schemeName="31">901191169</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-11</cbc:TaxLevelCode>
+            
+        
+            <cac:RegistrationAddress>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c.  (CO)</cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Transversal 15 Este # 100B-70 Km 5 Via La Calera-Rodamonte Buzon 9A-#1 Bogotá D.C.</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:RegistrationAddress>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>MDS CONSULTING &amp; LAWS SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="2" schemeName="31">901191169</cbc:CompanyID>
+            
+        
+            <cac:CorporateRegistrationScheme>
+               
+          
+               <cbc:ID>FAB</cbc:ID>
+               
+          
+               <cbc:Name>02976372</cbc:Name>
+               
+        
+            </cac:CorporateRegistrationScheme>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>Administrativo Cel +57 3134283255 Ventas Cel +57 3106350430</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>mospina@mdsconsultinglaws.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingSupplierParty>
+   
+  
+   <cac:AccountingCustomerParty>
+      
+    
+      <cbc:AdditionalAccountID>2</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cac:PartyIdentification>
+            
+        
+            <cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">900063077</cbc:ID>
+            
+      
+         </cac:PartyIdentification>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>Respirar Salud S.A.S</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c.  (CO)</cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>CARRERA 70 No 108 31</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>Respirar Salud S.A.S</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">900063077</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-11</cbc:TaxLevelCode>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>Respirar Salud S.A.S</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">900063077</cbc:CompanyID>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>7825748</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>center@respirarsalud.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingCustomerParty>
+   
+  
+   <cac:PaymentMeans>
+      
+    
+      <cbc:ID>2</cbc:ID>
+      
+    
+      <cbc:PaymentMeansCode>19</cbc:PaymentMeansCode>
+      
+    
+      <cbc:PaymentDueDate>2021-08-11</cbc:PaymentDueDate>
+      
+    
+      <cbc:PaymentID>AGOSTO2021</cbc:PaymentID>
+      
+  
+   </cac:PaymentMeans>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">150508.12</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">792148.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">150508.12</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>19.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>04</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>03</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:LegalMonetaryTotal>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">792148.00</cbc:LineExtensionAmount>
+      
+    
+      <cbc:TaxExclusiveAmount currencyID="COP">792148.00</cbc:TaxExclusiveAmount>
+      
+    
+      <cbc:TaxInclusiveAmount currencyID="COP">942656.12</cbc:TaxInclusiveAmount>
+      
+    
+      <cbc:AllowanceTotalAmount currencyID="COP">0.00</cbc:AllowanceTotalAmount>
+      
+    
+      <cbc:PayableAmount currencyID="COP">942656.12</cbc:PayableAmount>
+      
+  
+   </cac:LegalMonetaryTotal>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>1.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">792148.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">150508.12</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">792148.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">150508.12</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">792148.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>0.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>03</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">792148.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>0.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>04</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>HONORARIOS POR REVISORÍA FISCAL MES DE AGOSTO 2021 (Vr mes $1.584.296 - Descuento 50% Acuerdo Marzo a Diciembre 2021 = $792.148)</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">792148.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+
+</Invoice>

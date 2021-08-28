@@ -1,0 +1,1624 @@
+<?xml version="1.0" ?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+   
+  
+   <ext:UBLExtensions>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent>
+            
+        
+            <sts:DianExtensions>
+               
+          
+               <sts:InvoiceControl>
+                  
+            
+                  <sts:InvoiceAuthorization>18763004818011</sts:InvoiceAuthorization>
+                  
+            
+                  <sts:AuthorizationPeriod>
+                     
+              
+                     <cbc:StartDate>2020-03-04</cbc:StartDate>
+                     
+              
+                     <cbc:EndDate>2021-09-04</cbc:EndDate>
+                     
+            
+                  </sts:AuthorizationPeriod>
+                  
+            
+                  <sts:AuthorizedInvoices>
+                     
+              
+                     <sts:Prefix>EFE</sts:Prefix>
+                     
+              
+                     <sts:From>1</sts:From>
+                     
+              
+                     <sts:To>15000</sts:To>
+                     
+            
+                  </sts:AuthorizedInvoices>
+                  
+          
+               </sts:InvoiceControl>
+               
+          
+               <sts:InvoiceSource>
+                  
+            
+                  <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+                  
+          
+               </sts:InvoiceSource>
+               
+          
+               <sts:SoftwareProvider>
+                  
+            
+                  <sts:ProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</sts:ProviderID>
+                  
+            
+                  <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">cdb121c8-52b5-442b-8072-02f70297c09f</sts:SoftwareID>
+                  
+          
+               </sts:SoftwareProvider>
+               
+          
+               <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">6a27bfd4a327247d7fe5a63408b67cd1de1798cc52b14568ed909e0541610e217090438e4d92559b5fd7c32f32de2eaa</sts:SoftwareSecurityCode>
+               
+          
+               <sts:AuthorizationProvider>
+                  
+            
+                  <sts:AuthorizationProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="4" schemeName="31">800197268</sts:AuthorizationProviderID>
+                  
+          
+               </sts:AuthorizationProvider>
+               
+          
+               <sts:QRCode>https://catalogo-vpfe.dian.gov.co/document/searchqr?documentkey=2d29f0b53abff997bbe5c4b46d415ca225edf0de684b77dc249c21cffe1646d0f844c331a46ffb5350f213641ff73c23</sts:QRCode>
+               
+        
+            </sts:DianExtensions>
+            
+      
+         </ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent/>
+         
+    
+      </ext:UBLExtension>
+      
+  
+   </ext:UBLExtensions>
+   
+  
+   <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+   
+  
+   <cbc:CustomizationID>10</cbc:CustomizationID>
+   
+  
+   <cbc:ProfileID>DIAN 2.1</cbc:ProfileID>
+   
+  
+   <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+   
+  
+   <cbc:ID>EFE00017</cbc:ID>
+   
+  
+   <cbc:UUID schemeID="1" schemeName="CUFE-SHA384">2d29f0b53abff997bbe5c4b46d415ca225edf0de684b77dc249c21cffe1646d0f844c331a46ffb5350f213641ff73c23</cbc:UUID>
+   
+  
+   <cbc:IssueDate>2020-03-17</cbc:IssueDate>
+   
+  
+   <cbc:IssueTime>22:45:29-05:00</cbc:IssueTime>
+   
+  
+   <cbc:DueDate>2020-04-01</cbc:DueDate>
+   
+  
+   <cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+   
+  
+   <cbc:Note>
+Factura:  SIETE MILLONES DOSCIENTOS CINCUENTA Y  NUEVE MIL NOVECIENTOS TREINTA Y  DOS
+
+
+CUFE: ***************
+NumFac : EFE00017
+FecFac : 2020-03-17
+HorFac : 22:45:29-05:00
+ValFac : 6100783.32
+CodImp1 : 01
+ValImp1 : 1159148.83
+CodImp2 : 04
+ValImp2 : 0.00
+CodImp3 : 03
+ValImp3 : 0.00
+ValTotFac : 7259932.15
+NitOFE : 900146204
+NumAdq : 830123232
+ClTec : 1eaed1e2512d8a863ce6e62f893f1492944dee602a1d5d58f818b98ea6ab1eb4
+TipAmbiente : 1
+
+CUFE cadena: EFE000172020-03-1722:45:29-05:006100783.32011159148.83040.00030.007259932.159001462048301232321eaed1e2512d8a863ce6e62f893f1492944dee602a1d5d58f818b98ea6ab1eb41
+CUFE sha384: 2d29f0b53abff997bbe5c4b46d415ca225edf0de684b77dc249c21cffe1646d0f844c331a46ffb5350f213641ff73c23
+</cbc:Note>
+   
+  
+   <cbc:DocumentCurrencyCode listAgencyName="United Nations Economic Commission for Europe" listID="ISO 4217 Alpha" listName="Currency">COP</cbc:DocumentCurrencyCode>
+   
+  
+   <cbc:LineCountNumeric>13</cbc:LineCountNumeric>
+   
+  
+   <cac:AccountingSupplierParty>
+      
+    
+      <cbc:AdditionalAccountID>2</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cbc:IndustryClassificationCode>4363</cbc:IndustryClassificationCode>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>Aceros Bonilla SAS</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Calle 12 # 15 99</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>Aceros Bonilla SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-12</cbc:TaxLevelCode>
+            
+        
+            <cac:RegistrationAddress>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Calle 12 # 15 99</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:RegistrationAddress>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>Aceros Bonilla SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</cbc:CompanyID>
+            
+        
+            <cac:CorporateRegistrationScheme>
+               
+          
+               <cbc:ID>EFE</cbc:ID>
+               
+          
+               <cbc:Name>1697840</cbc:Name>
+               
+        
+            </cac:CorporateRegistrationScheme>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>34173 86 - 286 92 83</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>contabilidad@acerosbonilla.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingSupplierParty>
+   
+  
+   <cac:AccountingCustomerParty>
+      
+    
+      <cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cac:PartyIdentification>
+            
+        
+            <cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">830123232</cbc:ID>
+            
+      
+         </cac:PartyIdentification>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>ALONLEGUI INGENIERIA EU</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Bogotá, D.c. </cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>CR 69 D 1 SUR TO 2AP 514</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>ALONLEGUI INGENIERIA EU</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">830123232</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-11</cbc:TaxLevelCode>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>ALONLEGUI INGENIERIA EU</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">830123232</cbc:CompanyID>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>8042397</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>alonlegui-ingenieria@hotmail.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingCustomerParty>
+   
+  
+   <cac:PaymentMeans>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:PaymentMeansCode>10</cbc:PaymentMeansCode>
+      
+    
+      <cbc:PaymentDueDate>2020-04-01</cbc:PaymentDueDate>
+      
+    
+      <cbc:PaymentID>SO1190</cbc:PaymentID>
+      
+  
+   </cac:PaymentMeans>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">1159148.83</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">6100783.32</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">1159148.83</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>19.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>04</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>03</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:LegalMonetaryTotal>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">6100783.32</cbc:LineExtensionAmount>
+      
+    
+      <cbc:TaxExclusiveAmount currencyID="COP">6100783.32</cbc:TaxExclusiveAmount>
+      
+    
+      <cbc:TaxInclusiveAmount currencyID="COP">7259932.15</cbc:TaxInclusiveAmount>
+      
+    
+      <cbc:AllowanceTotalAmount currencyID="COP">0.00</cbc:AllowanceTotalAmount>
+      
+    
+      <cbc:PayableAmount currencyID="COP">7259932.15</cbc:PayableAmount>
+      
+  
+   </cac:LegalMonetaryTotal>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>150.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">2027902.50</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">385301.47</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">2027902.50</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">385301.47</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[PLT18114] PLATINA 1/8&quot; X 1 1/4&quot;</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">13519.35</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>2</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>5.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">414904.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">78831.76</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">414904.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">78831.76</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[ANG316212] ANGULO 3/16&quot; X 2 1/2&quot;</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">82980.80</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>3</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>5.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">202796.10</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">38531.26</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">202796.10</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">38531.26</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[PLT316212] PLATINA 3/16&quot; X 2&quot; 1/2&quot;</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">40559.22</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>4</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>15.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">518297.10</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">98476.45</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">518297.10</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">98476.45</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>MALLA ELECTROSOLDADA 3MM X 6 MTS EN ROLLO</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">34553.14</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>5</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>6.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">47898.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">9100.62</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">47898.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">9100.62</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>VARILLA CORRUGADA 9MM X 6MTS</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">7983.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>6</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>50.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">126050.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">23949.50</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">126050.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">23949.50</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>VARILLA GRAFILADA 4MM</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">2521.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>7</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>80.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">403360.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">76638.40</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">403360.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">76638.40</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>VARILLA GRAFILADA 6MM</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">5042.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>8</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>20.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">168060.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">31931.40</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">168060.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">31931.40</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>SOLDADURA 6013 X 1/8&quot; WEST ARCO</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">8403.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>9</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>100.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">1738269.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">330271.11</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">1738269.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">330271.11</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[PLT18112] PLATINA 1/8&quot; X 1 1/2&quot;</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">17382.69</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>10</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>6.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">130368.42</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">24770.00</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">130368.42</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">24770.00</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[PLT1820] PLATINA 1/8&quot; X 2&quot;</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">21728.07</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>11</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>5.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">33613.40</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">6386.55</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">33613.40</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">6386.55</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>VARILLA GRAFILADA 7MM</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">6722.68</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>12</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>10.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">75020.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">14253.80</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">75020.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">14253.80</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[DFL412G80XT] DISCO FLAP 4 1/2&quot;X7/8&quot; XTREME GRANO 80</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">7502.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>13</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>5.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">214244.80</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">40706.51</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">214244.80</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">40706.51</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[ANG1820] ANGULO 1/8&quot; X 2&quot;</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">42848.96</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+
+</Invoice>

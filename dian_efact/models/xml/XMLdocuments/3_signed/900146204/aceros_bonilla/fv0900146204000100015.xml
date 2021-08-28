@@ -1,0 +1,878 @@
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+   
+  
+   <ext:UBLExtensions>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent>
+            
+        
+            <sts:DianExtensions>
+               
+          
+               <sts:InvoiceControl>
+                  
+            
+                  <sts:InvoiceAuthorization>18763004818011</sts:InvoiceAuthorization>
+                  
+            
+                  <sts:AuthorizationPeriod>
+                     
+              
+                     <cbc:StartDate>2020-03-04</cbc:StartDate>
+                     
+              
+                     <cbc:EndDate>2021-09-04</cbc:EndDate>
+                     
+            
+                  </sts:AuthorizationPeriod>
+                  
+            
+                  <sts:AuthorizedInvoices>
+                     
+              
+                     <sts:Prefix>EFE</sts:Prefix>
+                     
+              
+                     <sts:From>1</sts:From>
+                     
+              
+                     <sts:To>15000</sts:To>
+                     
+            
+                  </sts:AuthorizedInvoices>
+                  
+          
+               </sts:InvoiceControl>
+               
+          
+               <sts:InvoiceSource>
+                  
+            
+                  <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+                  
+          
+               </sts:InvoiceSource>
+               
+          
+               <sts:SoftwareProvider>
+                  
+            
+                  <sts:ProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</sts:ProviderID>
+                  
+            
+                  <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">cdb121c8-52b5-442b-8072-02f70297c09f</sts:SoftwareID>
+                  
+          
+               </sts:SoftwareProvider>
+               
+          
+               <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">fdfe7816295a9256265fe5ba7efe6f04a62c899ff7d73c1d7728883cd2094e10b45e9f4be0e92b34b4640a3646fa86e9</sts:SoftwareSecurityCode>
+               
+          
+               <sts:AuthorizationProvider>
+                  
+            
+                  <sts:AuthorizationProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="4" schemeName="31">800197268</sts:AuthorizationProviderID>
+                  
+          
+               </sts:AuthorizationProvider>
+               
+          
+               <sts:QRCode>https://catalogo-vpfe.dian.gov.co/document/searchqr?documentkey=bdf69b1e07c2268eed59271f0c9a4efc8c7c588beeae1b43fb95593e9ed2ee13180c3787652cc4fb36602df8c7d1e55c</sts:QRCode>
+               
+        
+            </sts:DianExtensions>
+            
+      
+         </ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent><ds:Signature Id="xmldsig-b710215a-687c-11ea-bd82-0aa0ee3e530e">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></ds:SignatureMethod>
+<ds:Reference Id="xmldsig-b710215a-687c-11ea-bd82-0aa0ee3e530e-ref0" URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod>
+<ds:DigestValue>/mtUhPUCCDYdvLa4bZfYGHQ91K0ir/fJ/sdVsLJe8Mw=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-b710215a-687c-11ea-bd82-0aa0ee3e530e-signedprops">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod>
+<ds:DigestValue>aUW9oB6YX/KIwWk/XkDd7K13EcAAXtN40X0od+jXeaI=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="xmldsig-b710215a-687c-11ea-bd82-0aa0ee3e530e-sigvalue">AZ+4fg3scuf0+n8NVBQHj/15JgNKdiUcvuiMpge4Lmm0JoNS8nGuCGbzDIdmT5qc
+ASJJ/vybXwfy5FFhKl5/t+HqkonnS6TIdn5u/zqOGIBicwAWe0z+9h4EJbXUAB+B
+Knjaf9mLTiurFIT7Q2Bp44NTvRczdZMIIBF1g0xJqGk4Yde7V3VZ4vSDwRcu8TsO
+IaMIhxrgxNt6mmBeQk240hDdl9GgueHSgH7/Ko7GZ/1mMPYZJO0rBqKuliUKWu3/
+lUpRzwpEYkh6ebjbnGU2PruPnepUHtZZg8wHXKrNnrANDi02nDcc4dU/b3P3RurQ
+kSUeAbRanuDomEMZnq3j8w==</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>MIIIhTCCBm2gAwIBAgIIZki/FXgtcqcwDQYJKoZIhvcNAQELBQAwgbYxIzAhBgkq
+hkiG9w0BCQEWFGluZm9AYW5kZXNzY2QuY29tLmNvMSYwJAYDVQQDEx1DQSBBTkRF
+UyBTQ0QgUy5BLiBDbGFzZSBJSSB2MjEwMC4GA1UECxMnRGl2aXNpb24gZGUgY2Vy
+dGlmaWNhY2lvbiBlbnRpZGFkIGZpbmFsMRIwEAYDVQQKEwlBbmRlcyBTQ0QxFDAS
+BgNVBAcTC0JvZ290YSBELkMuMQswCQYDVQQGEwJDTzAeFw0yMDAxMTcyMDIyMDBa
+Fw0yMTAxMTYyMDIxMDBaMIIBOzEYMBYGA1UECRMPQ2FsbGUgMTIgIDE1IDk5MS0w
+KwYJKoZIhvcNAQkBFh5jb250YWJpbGlkYWRAYWNlcm9zYm9uaWxsYS5jb20xGzAZ
+BgNVBAMTEkFDRVJPUyBCT05JTExBIFNBUzETMBEGA1UEBRMKOTAwMTQ2MjA0ODE2
+MDQGA1UEDBMtRW1pc29yIEZhY3R1cmEgRWxlY3Ryb25pY2EgLSBQZXJzb25hIEp1
+cmlkaWNhMTowOAYDVQQLEzFFbWl0aWRvIHBvciBBbmRlcyBTQ0QgQWMgMjYgNjlD
+IDAzIFRvcnJlIEIgT2YgNzAxMRUwEwYDVQQKEwxDb250YWJpbGlkYWQxDzANBgNV
+BAcTBkJPR09UQTEVMBMGA1UECBMMQ1VORElOQU1BUkNBMQswCQYDVQQGEwJDTzCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKjO33xs9QY0k2FjxxbANlO9
+h9elLvzFe6QDstYMt7TPw/JfOzHOIJdzQPx45La7BrKNex+Gh8vdsy7VX/7lSM9l
+wwgu0S7VwVLFXDGg2rVZmsBoGM+XRRjPuYbYj/X/BUVC2eFRWwcOFGBJzuz31qqj
+jeLbTeXvD9m4hNcPE/37S0ufJ34zvYRFUxQ1cAbBNZ/l2fpc4pWpInHtH1x3mOEd
+vFNjMsOOA9hJ9JF70TzxK3s+mAIN8c5unjwIdLgr3KbM+iuKTMtHyWdDd3gkdJ3V
+Z67sOCTc6kzekYB0YzGFa64uMLjhDTZ3gCfNDeDn/yg3p2gAbpsgsxKbLZ5l6qcC
+AwEAAaOCAw0wggMJMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUOldQ0HcbPtaL
+6v+Xmdf/hAJIKQ8wNwYIKwYBBQUHAQEEKzApMCcGCCsGAQUFBzABhhtodHRwOi8v
+b2NzcC5hbmRlc3NjZC5jb20uY28wKQYDVR0RBCIwIIEeY29udGFiaWxpZGFkQGFj
+ZXJvc2JvbmlsbGEuY29tMIIB6QYDVR0gBIIB4DCCAdwwggHYBg0rBgEEAYH0SAEC
+BgEDMIIBxTCCAX4GCCsGAQUFBwICMIIBcB6CAWwATABhACAAdQB0AGkAbABpAHoA
+YQBjAGkA8wBuACAAZABlACAAZQBzAHQAZQAgAGMAZQByAHQAaQBmAGkAYwBhAGQA
+bwAgAGUAcwB0AOEAIABzAHUAagBlAHQAYQAgAGEAIABsAGEAcwAgAFAAbwBsAO0A
+dABpAGMAYQBzACAAZABlACAAQwBlAHIAdABpAGYAaQBjAGEAZABvACAAZABlACAA
+QwBvAG0AdQBuAGkAZABhAGQAIABBAGMAYQBkAOkAbQBpAGMAYQAgACgAUABDACkA
+IAB5ACAARABlAGMAbABhAHIAYQBjAGkA8wBuACAAZABlACAAUAByAOEAYwB0AGkA
+YwBhAHMAIABkAGUAIABDAGUAcgB0AGkAZgBpAGMAYQBjAGkA8wBuACAAKABEAFAA
+QwApACAAZQBzAHQAYQBiAGwAZQBjAGkAZABhAHMAIABwAG8AcgAgAEEAbgBkAGUA
+cwAgAFMAQwBEMEEGCCsGAQUFBwIBFjVodHRwOi8vd3d3LmFuZGVzc2NkLmNvbS5j
+by9kb2NzL0RQQ19BbmRlc1NDRF9WMy4yLnBkZjAdBgNVHSUEFjAUBggrBgEFBQcD
+AgYIKwYBBQUHAwQwOQYDVR0fBDIwMDAuoCygKoYoaHR0cDovL2NybC5hbmRlc3Nj
+ZC5jb20uY28vQ2xhc2VJSXYyLmNybDAdBgNVHQ4EFgQUGtUZiYQ8kEOeoDQU6lyf
+xkR0GEUwDgYDVR0PAQH/BAQDAgXgMA0GCSqGSIb3DQEBCwUAA4ICAQCagM7eRinw
+9Mj1zbPzqiGBYbmyAzItWbmV3SZSPJTWsYWOE8njcH+Athns/9fyXLuXIsX0Clth
+8HUrL1OeDO0z9c8xyNYF96wVtBpWrcQQQvwKdsR287PkVl6t8bSt22JhHmfHn7qh
+Svhupi/Ja2uutv3KjIqHM4WIB1ye1CKrtDNkbWgiloxQiH5AjyQYz8ad3bZ/jfFQ
+7IUf7SZkfN+9ZGjBEjLV3lzsNgEBYWNp5Z8QKzMwf6vkfp26ePyGQcp2kFllxHe+
+59gmw+3A7prUpoDBHhm6rakcf/Y5T9LUcErhiUAPBDQZrqUJEDb2PvltmNim03rL
+2c39gqladLm5LvUVYhuZg+fFuWjD4rVeygUc4jPCfKsCRt8nJO0h+vdzQif7WPNw
+TiKqvZ0FuPwHC1lxNyz1wL8due0OhVzNCqfcw09f/0xoa1J1BwJOAVdS8TAMcfMZ
+PK4Xz9tQV77dyVV/Bqg8ZuBs+Ft8E4Z8kjqG7ajwHeU3t685YL9oihG1aDT6lxF8
+My3ETkXKwOQvrFchYkyS67TTgJ56mvwAFGbirnZlAiGA4brvcov+buCVhtr3voAb
+bxKdJLJmS7m/AsI75SGroG9CQ029b/7RrwgsjOMUUxKEyJRmpsKgqrME10sFZp6P
+2/C/J9V+mtBBwhNVWE1vp1PemKQknaQOUA==</ds:X509Certificate>
+<ds:X509SubjectName>c=CO,st=CUNDINAMARCA,l=BOGOTA,o=Contabilidad,ou=Emitido por Andes SCD Ac 26 69C 03 Torre B Of 701,title=Emisor Factura Electronica - Persona Juridica,serialNumber=9001462048,cn=ACEROS BONILLA SAS,1.2.840.113549.1.9.1=contabilidad@acerosbonilla.com,street=Calle 12  15 99</ds:X509SubjectName>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>c=CO,l=Bogota D.C.,o=Andes SCD,ou=Division de certificacion entidad final,cn=CA ANDES SCD S.A. Clase II v2,1.2.840.113549.1.9.1=info@andesscd.com.co</ds:X509IssuerName>
+<ds:X509SerialNumber>7370350889123279527</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+</ds:KeyInfo>
+<ds:Object><xades:QualifyingProperties Target="#xmldsig-b710215a-687c-11ea-bd82-0aa0ee3e530e"><xades:SignedProperties Id="xmldsig-b710215a-687c-11ea-bd82-0aa0ee3e530e-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2020-03-17T13:25:44.487722-05:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>z7fXQtqXnTGBoN1mScqpWf93WT43zn4ftrsJp0fJYJE=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>c=CO,l=Bogota D.C.,o=Andes SCD,ou=Division de certificacion entidad final,cn=CA ANDES SCD S.A. Clase II v2,1.2.840.113549.1.9.1=info@andesscd.com.co</ds:X509IssuerName><ds:X509SerialNumber>7370350889123279527</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://facturaelectronica.dian.gov.co/politicadefirma/v2/politicadefirmav2.pdf</xades:Identifier><xades:Description>Política de firma para facturas electrónicas de la República de Colombia</xades:Description></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>dMoMvtcG5aIzgYo0tIsSQeVJBDnUnfSOfBpxXrmor0Y=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier><xades:SignerRole><xades:ClaimedRoles><xades:ClaimedRole>supplier</xades:ClaimedRole></xades:ClaimedRoles></xades:SignerRole></xades:SignedSignatureProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+  
+   </ext:UBLExtensions>
+   
+  
+   <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+   
+  
+   <cbc:CustomizationID>10</cbc:CustomizationID>
+   
+  
+   <cbc:ProfileID>DIAN 2.1</cbc:ProfileID>
+   
+  
+   <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+   
+  
+   <cbc:ID>EFE00015</cbc:ID>
+   
+  
+   <cbc:UUID schemeID="1" schemeName="CUFE-SHA384">bdf69b1e07c2268eed59271f0c9a4efc8c7c588beeae1b43fb95593e9ed2ee13180c3787652cc4fb36602df8c7d1e55c</cbc:UUID>
+   
+  
+   <cbc:IssueDate>2020-03-17</cbc:IssueDate>
+   
+  
+   <cbc:IssueTime>18:25:44-05:00</cbc:IssueTime>
+   
+  
+   <cbc:DueDate>2020-04-16</cbc:DueDate>
+   
+  
+   <cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+   
+  
+   <cbc:Note>
+Factura:  OCHOCIENTOS SETENTA Y  TRES MIL OCHOCIENTOS DIECINUEVE
+
+
+CUFE: ***************
+NumFac : EFE00015
+FecFac : 2020-03-17
+HorFac : 18:25:44-05:00
+ValFac : 734301.94
+CodImp1 : 01
+ValImp1 : 139517.37
+CodImp2 : 04
+ValImp2 : 0.00
+CodImp3 : 03
+ValImp3 : 0.00
+ValTotFac : 873819.31
+NitOFE : 900146204
+NumAdq : 830123232
+ClTec : 1eaed1e2512d8a863ce6e62f893f1492944dee602a1d5d58f818b98ea6ab1eb4
+TipAmbiente : 1
+
+CUFE cadena: EFE000152020-03-1718:25:44-05:00734301.9401139517.37040.00030.00873819.319001462048301232321eaed1e2512d8a863ce6e62f893f1492944dee602a1d5d58f818b98ea6ab1eb41
+CUFE sha384: bdf69b1e07c2268eed59271f0c9a4efc8c7c588beeae1b43fb95593e9ed2ee13180c3787652cc4fb36602df8c7d1e55c
+</cbc:Note>
+   
+  
+   <cbc:DocumentCurrencyCode listAgencyName="United Nations Economic Commission for Europe" listID="ISO 4217 Alpha" listName="Currency">COP</cbc:DocumentCurrencyCode>
+   
+  
+   <cbc:LineCountNumeric>2</cbc:LineCountNumeric>
+   
+  
+   <cac:AccountingSupplierParty>
+      
+    
+      <cbc:AdditionalAccountID>2</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cbc:IndustryClassificationCode>4363</cbc:IndustryClassificationCode>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>Aceros Bonilla SAS</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Calle 12 # 15 99</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>Aceros Bonilla SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-12</cbc:TaxLevelCode>
+            
+        
+            <cac:RegistrationAddress>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>Calle 12 # 15 99</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:RegistrationAddress>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>Aceros Bonilla SAS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="8" schemeName="31">900146204</cbc:CompanyID>
+            
+        
+            <cac:CorporateRegistrationScheme>
+               
+          
+               <cbc:ID>EFE</cbc:ID>
+               
+          
+               <cbc:Name>1697840</cbc:Name>
+               
+        
+            </cac:CorporateRegistrationScheme>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>34173 86 - 286 92 83</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>contabilidad@acerosbonilla.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingSupplierParty>
+   
+  
+   <cac:AccountingCustomerParty>
+      
+    
+      <cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cac:PartyIdentification>
+            
+        
+            <cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">830123232</cbc:ID>
+            
+      
+         </cac:PartyIdentification>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>ALONLEGUI INGENIERIA EU</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>11001</cbc:ID>
+               
+          
+               <cbc:CityName>Bogotá, D.c. </cbc:CityName>
+               
+          
+               <cbc:PostalZone>11001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Bogotá, D.c. </cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>11</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>CR 69 D 1 SUR TO 2AP 514</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>ALONLEGUI INGENIERIA EU</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">830123232</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="48">O-11</cbc:TaxLevelCode>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>ALONLEGUI INGENIERIA EU</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="1" schemeName="31">830123232</cbc:CompanyID>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>8042397</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>alonlegui-ingenieria@hotmail.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingCustomerParty>
+   
+  
+   <cac:PaymentMeans>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:PaymentMeansCode>10</cbc:PaymentMeansCode>
+      
+    
+      <cbc:PaymentDueDate>2020-04-16</cbc:PaymentDueDate>
+      
+    
+      <cbc:PaymentID>SO980</cbc:PaymentID>
+      
+  
+   </cac:PaymentMeans>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">139517.37</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">734301.94</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">139517.37</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>19.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>04</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="COP">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="COP">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>03</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:LegalMonetaryTotal>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">734301.94</cbc:LineExtensionAmount>
+      
+    
+      <cbc:TaxExclusiveAmount currencyID="COP">734301.94</cbc:TaxExclusiveAmount>
+      
+    
+      <cbc:TaxInclusiveAmount currencyID="COP">873819.31</cbc:TaxInclusiveAmount>
+      
+    
+      <cbc:AllowanceTotalAmount currencyID="COP">0.00</cbc:AllowanceTotalAmount>
+      
+    
+      <cbc:PayableAmount currencyID="COP">873819.31</cbc:PayableAmount>
+      
+  
+   </cac:LegalMonetaryTotal>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>14.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">282352.00</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">53646.88</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">282352.00</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">53646.88</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[CMG42KE] CEMENTO GRIS X 42.5KGS ARGOS ESTRUCTURAL</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">20168.00</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>2</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>26.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="COP">451949.94</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="COP">85870.49</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="COP">451949.94</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="COP">85870.49</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>[PLT18112] PLATINA 1/8" X 1 1/2"</cbc:Description>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="COP">17382.69</cbc:PriceAmount>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+
+</Invoice>

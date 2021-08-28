@@ -1,0 +1,41 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <s:Header>
+    <a:Action s:mustUnderstand="1">http://wcf.dian.colombia/IWcfDianCustomerServices/GetStatusResponse</a:Action>
+    <o:Security xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" s:mustUnderstand="1">
+      <u:Timestamp u:Id="_0">
+        <u:Created>2021-08-24T19:30:14.921Z</u:Created>
+        <u:Expires>2021-08-24T19:35:14.921Z</u:Expires>
+      </u:Timestamp>
+    </o:Security>
+  </s:Header>
+  <s:Body>
+    <GetStatusResponse xmlns="http://wcf.dian.colombia">
+      <GetStatusResult xmlns:b="http://schemas.datacontract.org/2004/07/DianResponse" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <b:ErrorMessage xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <c:string>Regla: CDG01, Rechazo: El c&#243;digo del departamento no coincide con el del municipio</c:string>
+          <c:string>Regla: FAD09b, Rechazo: Fecha de emision posterior a la fecha final de la autorizacion de la numeracion</c:string>
+          <c:string>Regla:  FAV05, Rechazo: La unidad de la cantidad utilizada NO existe en la lista de unidades.</c:string>
+          <c:string>Regla: FAS01b, Rechazo: Existe mas de un grupo con informacion de totales para un mismo tributo en la factura</c:string>
+          <c:string>Regla: FAK26, Rechazo: Responsabilidad informada para receptor no v&#225;lido seg&#250;n lista </c:string>
+          <c:string>Regla: FAK12, Rechazo: Este c&#243;digo no corresponde a un valor v&#225;lido de la lista</c:string>
+          <c:string>Regla: FAS01a, Rechazo: Existe mas de un grupo con informacion de totales para un mismo tributo en la factura</c:string>
+          <c:string>Regla: FAD03, Rechazo: ProfileID : no contiene el literal &#8220;DIAN 2.1: Factura Electr&#243;nica de Venta&#8221;</c:string>
+          <c:string>Regla: FBB04, Notificaci&#243;n: No se informo la cantidad real sobre la cual el precio aplica</c:string>
+          <c:string>Regla: FAX14, Notificaci&#243;n: Reporta una tarifa diferente para uno de los tributos enunciados en la tabla 13.3.9</c:string>
+          <c:string>Regla: FAZ09, Notificaci&#243;n: Debe existir el grupo de informaci&#243;n de identificaci&#243;n del bien o servicio</c:string>
+          <c:string>Regla: FAS14, Notificaci&#243;n: No corresponde a un valor valido de la lista</c:string>
+          <c:string>Regla: FAS14, Notificaci&#243;n: No corresponde a un valor valido de la lista</c:string>
+          <c:string>Regla: FAK57, Notificaci&#243;n: Estructura de c&#243;digo no valida</c:string>
+        </b:ErrorMessage>
+        <b:IsValid>false</b:IsValid>
+        <b:StatusCode>99</b:StatusCode>
+        <b:StatusDescription>Validaci&#243;n contiene errores en campos mandatorios.</b:StatusDescription>
+        <b:StatusMessage>Documento con errores en campos mandatorios.</b:StatusMessage>
+        <b:XmlBase64Bytes i:nil="true"/>
+        <b:XmlBytes i:nil="true"/>
+        <b:XmlDocumentKey>4c9be9c5e1aaff82a832e66b168949eb6f4a56fb539f7377813839409ff30746b92719709a0f9248104f5e3518c2a511</b:XmlDocumentKey>
+        <b:XmlFileName>FEV933758890001110</b:XmlFileName>
+      </GetStatusResult>
+    </GetStatusResponse>
+  </s:Body>
+</s:Envelope>

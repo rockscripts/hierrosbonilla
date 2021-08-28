@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DIAN Genericode listas de validacion :: Ultima modificación 18-02-2019 - evb-->
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+	<Identification>
+		<ShortName>TipoOperacion</ShortName>
+		<LongName xml:lang="es">Tipo de Operacion</LongName>
+		<Version>1</Version>
+		<CanonicalUri>urn:dian:names:especificacion:ubl:listacodigos:gc:TipoOperacion</CanonicalUri>
+		<CanonicalVersionUri>urn:dian:names:especificacion:ubl:listacodigos:gc:TipoOperacion-2.1</CanonicalVersionUri>
+		<LocationUri>http://dian.gov.co/ubl/os-ubl-2.0/cl/gc/default/TipoOperacion-2.1.gc</LocationUri>
+		<Agency>
+			<LongName xml:lang="es">DIAN (Dirección de Impuestos y Aduanas Nacionales)</LongName>
+			<Identifier>195</Identifier>
+		</Agency>
+	</Identification>
+	<ColumnSet>
+		<Column Id="code" Use="required">
+			<ShortName>Code</ShortName>
+			<LongName xml:lang="es">Codigo Comun</LongName>
+			<Data Type="normalizedString"/>
+		</Column>
+		<Column Id="name" Use="required">
+			<ShortName>Name</ShortName>
+			<LongName xml:lang="es">Nombre</LongName>
+			<Data Type="string"/>
+		</Column>
+	</ColumnSet>
+	<SimpleCodeList>
+		<!--<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>01</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Combustibles</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>02</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Emisor es Autoretenedor</SimpleValue>
+			</Value>
+		</Row>-->
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>03</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Excluidos y Exentos</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>04</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Exportacion</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>05</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Generica</SimpleValue>
+			</Value>
+		</Row>
+		<!--<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>06</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Generica con pago anticipado</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>07</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Generica con periodo de facturacion</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>08</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Consorcio</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>09</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Servicios AIU</SimpleValue>
+			</Value>
+			https://clauserp.com/blog/aspectos-importantes-en-los-servicios-aiu/
+		</Row>-->
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>10</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Estandar</SimpleValue>
+			</Value>
+		</Row>
+		<!--<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>11</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Mandatos bienes</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>12</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Mandatos Servicios</SimpleValue>
+			</Value>
+		</Row>-->
+	</SimpleCodeList>
+</gc:CodeList>

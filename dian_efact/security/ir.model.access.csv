@@ -1,0 +1,4 @@
+"id","name","perm_create","perm_write","perm_unlink","perm_read","group_id/id","model_id/id"
+"base.access_res_company_group_user","res_company group_user","True","True","True","True","","dian_efact.model_res_company"
+"base.accesas_res_users_all","res_users all","True","True","True","True","","dian_efact.model_res_users"
+"__export__.ir_model_access_568_fe38c8da","edocs","True","True","True","True","account.group_account_manager","dian_efact.model_dian_edocs"

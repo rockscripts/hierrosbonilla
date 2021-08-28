@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">        
+           
+            <xpath expr="//h2" position="replace">
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="doc.company_id"></t>
+                </t>
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"></t>
+                </t>             
+                <link href="/dian_efact/static/src/css/quote_template.css" rel="stylesheet"/>  
+            </xpath>
+
+           <xpath expr="//table[hasclass('o_main_table')]" position="before">
+           <table class="table table-sm table-cst" style="margin-bottom:-0px;margin-top:20px;margin-right:2px">
+                <tr>
+                    <td colspan="5">
+                        <div>
+                            <div class="row-invoice-details-leyend">Datos del cliente</div>
+                            <div class="row-invoice-details-inner"><span t-field="doc.partner_id.name"/></div>
+                        </div>
+                    </td>   
+                    <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10" style="width:100px" >N.I.T / C.C</div>
+                            <div class="row-invoice-details-inner paln-10"><span t-field="doc.partner_id.vat"/></div>
+                        </div>
+                    </td>   
+                </tr>
+                <tr>
+                    <td colspan="6">
+                <div class="row-invoice-details">
+                    <div class="row-invoice-details-leyend">Dirección</div>
+                    <div class="row-invoice-details-inner">
+                        <span t-field="doc.partner_id.street"/>
+                        <span> - </span>
+                        <span class="header-company-basic-info" t-esc="doc.partner_id.state_id.name.encode('utf-8', 'ignore').capitalize()"/>
+                        <span> - </span>
+                        <span class="header-company-basic-info" t-esc="doc.partner_id.district_id.name.encode('utf-8', 'ignore').capitalize()"/>
+                        <span> - C.P. </span>
+                        <span class="header-company-basic-info" t-esc="doc.partner_id.zip"/>
+                    </div>
+                </div>
+                    </td>     
+                </tr>
+                <tr>
+                   <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10"><div t-if="doc.name and doc.state == 'draft' " >Cotización</div>
+                                <div t-if="doc.name and doc.state == 'sale' "   style="width: 130px;">Orden de Venta</div></div>
+                            <div class="row-invoice-details-inner paln-10"><div t-field="doc.name"/></div>
+                        </div>
+                    </td> 
+                    <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10"  style="width: 140px;">Fecha de la Cotización</div>
+                            <div class="row-invoice-details-inner paln-10"><span t-field="doc.date_order"  t-options='{"widget": "date"}'  t-if="doc.date_order and doc.state in ['draft','sent']" /></div>
+                        </div>
+                    </td> 
+                    <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10" >Expiración</div>
+                            <div class="row-invoice-details-inner paln-10"><span  t-if="doc.validity_date and doc.state in ['draft', 'sent']" t-field="doc.validity_date"/></div>
+                        </div>
+                    </td> 
+                    
+                     <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10" >Referencia</div>
+                            <div class="row-invoice-details-inner paln-10"><span  t-if="doc.client_order_ref"  t-field="doc.client_order_ref"/></div>
+                        </div>
+                    </td>     
+                    <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10"  style="width: 110px;">Fecha del Pedido</div>
+                            <div class="row-invoice-details-inner paln-10"><span t-field="doc.date_order"  t-options='{"widget": "date"}'  t-if="doc.date_order and doc.state not in ['draft','sent']" /></div>
+                        </div>
+                    </td> 
+                    <td>
+                        <div>
+                            <div class="row-invoice-details-leyend pal-10">Vendedor</div>
+                            <div class="row-invoice-details-inner paln-10"><span t-if="doc.user_id.name" t-field="doc.user_id.name"/></div>
+                        </div>
+                    </td> 
+                </tr>                                                
+                   </table>
+                   
+                   
+            </xpath>
+           
+        </template>
+    </data>
+</odoo>

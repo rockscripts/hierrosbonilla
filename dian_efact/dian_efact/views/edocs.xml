@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+        <record id="view_edocs_filter" model="ir.ui.view">
+            <field name="name">dian.edocs.select</field>
+            <field name="model">dian.edocs</field>
+            <field name="arch" type="xml">
+                <search string="Search Invoice">
+                    <field name="number" string="Invoice" filter_domain="['|','|','|', ('number','ilike',self), ('origin','ilike',self), ('reference', 'ilike', self), ('partner_id', 'child_of', self)]"/>
+                    <field name="current_company_id" string="current"  invisible="0" />
+                    <field name="company_id"  invisible="0" />
+                    <field name="partner_id"  invisible="0" />
+                </search>
+            </field>
+        </record>
+        <record id="sunat_edocs_tree_view" model="ir.ui.view">
+            <field name="name">dian.edocs.tree.view</field>
+            <field name="model">dian.edocs</field>
+            <field name="arch" type="xml">
+                <tree create="false"  default_order="number desc" class="edocs_tree_view">
+                    <field name="number" class="edocs_number_invoice"  />
+                    <field name="dian_request_status" class="dian_request_status"  />
+                    <field name="dian_request_type" class="dian_request_type"  />
+                    <field name="create_date" class="create_date" type="date" />
+                    <field name="company_id"  invisible="1"  />
+                    <field name="current_company_id"  invisible="1"  />
+                    <field name="partner_id"  invisible="1" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_load_action_dian_edocs" model="ir.actions.server">
+            <field name="name">Load eDocs Action Window</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_dian_edocs" />
+            <field name="state">code</field>
+            <field name="code">
+                action =  env.get('dian.edocs').load_action_window()
+            </field>
+        </record>
+        <record id="action_dian_edocs_book" model="ir.actions.act_window">
+            <field name="name">Comprobantes eléctronicos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dian.edocs</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_edocs_filter"/>
+        </record>
+        
+        <record id="form_dian_edocs" model="ir.ui.view">
+            <field name="name">Comprobantes eléctronicos</field>
+            <field name="model">dian.edocs</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                    <div class="status-requested-container">
+                        <div class="status-requested-element ok color-green nodisplay">
+                            <i class="fa fa-check-circle "></i> Emitida
+                        
+                        
+                        
+                        </div>
+                        <div class="status-requested-element fail color-orange nodisplay">
+                            <i class="fa fa-exclamation-triangle"></i> Fallida
+                        
+                        
+                        
+                        </div>
+                        <div class="status-requested-element not_requestd color-red nodisplay">
+                            <i class="fa fa-ban"></i> Sin emitir
+                        
+                        
+                        
+                        </div>
+                    </div>
+                    <group colspan="2">
+                        <group>
+                            <field name="dian_request_type" class="dian_request_type"/>
+                            <field name="id" invisible="1" class="edocs_document_id"/>
+                            <field name="number"/>
+                            <field name="create_date"/>
+                            <field name="api_message"/>
+                            <field name="dian_request_status" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="qr_image" nolabel="1" widget="image"/>                            
+                        </group>
+                    </group>
+                    <group>
+                        <field name="unsigned_document" string='XML - No firmado'  widget="binary" filename="unsigned_document_filename"/>
+                        <field name="unsigned_document_filename" invisible="1"/>
+                        <field name="signed_document" string='XML - Firmado'  widget="binary" filename="signed_document_filename"/>
+                        <field name="signed_document_filename" invisible="1"/>
+                        <!--<field name="response_document" string='XML - Respuesta'  widget="binary" filename="response_document_filename"/><field name="response_document_filename" invisible="1"/>-->
+                    </group>
+                    <group>
+                       <field name="qr_url" widget ="url"/>
+                    </group>
+                    
+                    <group>
+                        <div class="btn-primary btn-emitir-edocs" number="">Emitir</div>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <menuitem id="sunat_edocs_menu_root" action="action_load_action_dian_edocs" name="Dian eFact" sequence="453"/>
+    </data>
+</odoo>

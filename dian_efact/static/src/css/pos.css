@@ -1,0 +1,31 @@
+
+.company-details-padded
+{
+    padding-left: 15px;
+}
+.company-details-padded-footer
+{
+    padding-left: 62px;
+}
+.company-details
+{
+    margin-top: 10px;
+}
+.pos .pos-sale-ticket table td {
+    padding: 6px;
+    border: 1px solid #dddd;
+}
+.participant_name
+{
+    color: #888;
+}
+.invoice-details
+{
+    display: none;
+    margin-top: 10px;
+    font-weight: bold;
+    border-top: 1px dashed #555;
+    border-bottom: 1px dashed #555;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

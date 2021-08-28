@@ -1,0 +1,26 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <s:Header>
+    <a:Action s:mustUnderstand="1">http://wcf.dian.colombia/IWcfDianCustomerServices/GetStatusResponse</a:Action>
+    <o:Security xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" s:mustUnderstand="1">
+      <u:Timestamp u:Id="_0">
+        <u:Created>2020-11-09T16:19:04.364Z</u:Created>
+        <u:Expires>2020-11-09T16:24:04.364Z</u:Expires>
+      </u:Timestamp>
+    </o:Security>
+  </s:Header>
+  <s:Body>
+    <GetStatusResponse xmlns="http://wcf.dian.colombia">
+      <GetStatusResult xmlns:b="http://schemas.datacontract.org/2004/07/DianResponse" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <b:ErrorMessage xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        <b:IsValid>false</b:IsValid>
+        <b:StatusCode>66</b:StatusCode>
+        <b:StatusDescription>TrackId no existe en los registros de la DIAN.</b:StatusDescription>
+        <b:StatusMessage i:nil="true"/>
+        <b:XmlBase64Bytes i:nil="true"/>
+        <b:XmlBytes i:nil="true"/>
+        <b:XmlDocumentKey i:nil="true"/>
+        <b:XmlFileName i:nil="true"/>
+      </GetStatusResult>
+    </GetStatusResponse>
+  </s:Body>
+</s:Envelope>

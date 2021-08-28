@@ -1,0 +1,48 @@
+<templates>
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery=".vat" t-operation="replace">
+            <div class="dian_vat_pos" style="display: inline-grid;">
+                <select name="dian_tipo_documento" id="dian_tipo_documento" class="detail dian_tipo_documento pos_dian_tipo_documento">
+                    <option t-att-value="13">Cédula de ciudadanía</option>
+                    <option t-att-value="31">NIT</option>
+                    <option t-att-value="50">VAT extranjero</option>
+                    <option t-att-value="12">Targeta Identidad</option>
+                    <option t-att-value="41">Pasaporte</option>
+                    <option t-att-value="21">Tarjeta Indentidad extranjería</option>
+                    <option t-att-value="22">Carnet Identidad Extranjería</option>                                        
+                </select>
+                <input class='detail vat' name='vat' t-att-value='partner.vat || ""'></input>
+                <input class='detail vat-DV' name='vat_dv' type="hidden"></input>
+                <input type="hidden" class='hidden_partner_id' name='partner_id' t-att-value='partner.id || ""'></input>
+            </div>
+        </t>
+        <t t-jquery=".client-details-left" t-operation="replace">
+            <div class="client-details-left pos-dianfact">
+                <div class="client-detail">
+                    <span class="label">Calle</span>
+                    <input class="detail client-address-street" name="street" placeholder="Calle" value=""/>
+                </div>
+                
+                <div class="client-detail">
+                    <span class="label">País</span>
+                    <select class="detail client-address-country needsclick" name="country_id">
+                    </select>
+                    <span class="label">Departamento / Estado</span>
+                    <select class="detail client-address-state_id" name="state_id"></select>
+                    <span class="label">Distrícto / Municipio</span>
+                    <select class="detail client-address-district_id" name="district_id"></select>
+                </div>
+
+                <div class="client-detail">
+                    <span class="label">Código postal</span>
+                    <input class="detail client-address-zip" name="zip" placeholder="ZIP" value=""/>
+                </div>
+            </div>
+            </t>
+        </t>
+        <t t-extend="Chrome">
+            <t t-jquery=".pos-logo" t-operation="replace">
+                <img class="pos-logo" src="/dian_efact/static/src/images/logo.png" />
+            </t>
+        </t>
+    </templates>
