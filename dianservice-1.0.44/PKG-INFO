@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: dianservice
+Version: 1.0.44
+Summary: DIAN - sign and verify xml
+Home-page: https://instagram.com/rockscripts/
+Author: @rockscripts
+Author-email: rockscripts@gmail.com
+License: UNKNOWN
+Description: Generate signatures for Dian e-documents
+Platform: any
+Requires-Python: >=2.7.*
