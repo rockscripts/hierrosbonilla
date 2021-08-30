@@ -44,6 +44,9 @@ class DianEdocs(models.Model):
 
     qr_url = fields.Char(string="QR URL")
 
+    ad_response_api = fields.Text(string="Attached Document")
+    
+
     _columns =  {
                     'current_company_id': fields.Integer( compute='_current_company_id', store=False),
                 }

@@ -21,11 +21,11 @@ class res_partner(models.Model):
     dian_municipio = fields.Selection(
         selection='_get_municipios', string="Municipio")
     district_id = fields.Many2one('res.country.state', 'Distrito')
-    dian_responsabilidades = fields.Selection(selection="_get_responsabilidades", string='Responsabilidad Físcal', default='O-49')
+    dian_responsabilidades = fields.Selection(selection="_get_responsabilidades", string='Responsabilidad Físcal', default='R-99-PN')
     
     dian_matricula = fields.Char(name="dian_matricula", string="Matricula Mercantil", default='')
-    vat_dv = fields.Char(string="DV", default="")
-
+    vat_dv = fields.Char(string="DV", default="")        
+    
     _columns = {
                     "dian_regimen":fields.Selection([('0','Ventas Régimen común'),('1','Persona Jurídica'),('2','Gran Contribuyente'),('3','Auto Retenedor')], string='Régimen', default='0'),
                     "dian_tipo_documento":fields.Selection([('13','Cédula de ciudadanía'),('31','NIT'),('11','Registro civil'),('41','Pasaporte'),('12','Tarjeta de identidad'),('21','Tarjeta de extranjería'),('22','Cédula de extranjería'),('42','Documento de identificación extranjero'),('91','NUIP *')], string='Tipo Documento', default='31')

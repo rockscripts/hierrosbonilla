@@ -155,14 +155,14 @@ class AccountInvoiceRefund(models.TransientModel):
 
                 if(self.dian_note == "07"):
                     journal = journal_obj.search([('code', '=', str("NCR"))])
-                    sequence_credit = sequence_obj.next_by_code(str("NCR"))
+                    sequence_credit = sequence_obj.search([('code', '=', str("NCR"))], limit=1)
                     discrepance_text = ''
                     for selection in self.CD_VALUES:
                         if(self.credit_discrepance == selection[0]):
                             discrepance_text = selection[1]
 
                     invoiceNote.update({
-                                        "number": str(sequence_credit), 
+                                        "number": str(sequence_credit.prefix) + str(sequence_credit.number_next_actual), 
                                         "journal_id": int(journal.id), 
                                         "discrepance_code": str(self.credit_discrepance), 
                                         "discrepance_text": str(discrepance_text), 
@@ -180,16 +180,14 @@ class AccountInvoiceRefund(models.TransientModel):
                     result['id'] = "210"
                     result['xml_id'] = 'account.action_invoice_out_invoice'
                     result['display_name'] = 'Notas de Débito'
-                    #result['domain'].append(('type', '=', 'out_invoice'))
-                    #raise Warning(result)
                     journal = journal_obj.search([('code', '=', str("NDB"))])
-                    sequence_debit = sequence_obj.next_by_code(str("NDB"))
+                    sequence_debit = sequence_obj.search([('code', '=', str("NDB"))], limit=1)
                     discrepance_text = ''
                     for selection in self.DB_VALUES:
                         if(self.debit_discrepance == selection[0]):
                             discrepance_text = selection[1]
                     invoiceNote.update({
-                                            "number": str(sequence_debit), 
+                                            "number": str(sequence_debit.prefix) + str(sequence_debit.number_next_actual), 
                                             "journal_id": int(journal.id), 
                                             "discrepance_code": str(self.debit_discrepance), 
                                             "discrepance_text": str(discrepance_text), 

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+    <template id="assets_backend" name="pos assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/dian_efact/static/src/css/pos.css"/>
+        </xpath>
+    </template>   
+    
+    <template id="assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+        <script type="text/javascript" src="/dian_efact/static/src/js/jquery.js"></script>
+        <script type="text/javascript" src="/dian_efact/static/src/js/invoice.js"></script>   
+        <script type="text/javascript" src="/dian_efact/static/src/js/admin.js"></script>  
+        <link rel="stylesheet" href="/dian_efact/static/src/css/admin.css"/> 
+         <script type="text/javascript" src="/dian_efact/static/src/js/pos_screen.js"></script> 
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside"> 
+        <link rel="stylesheet" href="/dian_efact/static/src/css/frontend.css"/> 
+        <script type="text/javascript" src="/dian_efact/static/src/js/jquery.js"></script>
+        <script type="text/javascript" src="/dian_efact/static/src/js/frontend.js"></script>  
+        </xpath>
+    </template>
+
+    <template id="address_b2b" inherit_id="website_sale.address">
+        <xpath expr="//label[@for='vat']" position="after">
+            <t>                  
+                <select  name="dian_tipo_documento" id="dian_tipo_documento" t-attf-class="form-control #{error.get('dian_tipo_documento') and 'is-invalid' or ''}" t-att-readonly="'1' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None">
+                    <option t-att-value="13"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '13'">Cédula de ciudadanía</option>
+                    <option t-att-value="31"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '31'">NIT</option>
+                    <option t-att-value="50"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '50'">VAT Extranjero</option>
+                    <option t-att-value="11"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '11'">Registro civil</option>
+                    <option t-att-value="41"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '41'">Pasaporte</option>
+                    <option t-att-value="12"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '12'">Tarj. Identidad:</option>
+                    <option t-att-value="21"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '21'">Tarj. Extranjería:</option>
+                    <option t-att-value="22"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '22'">Carn. Extranjería:</option>
+                    <option t-att-value="42"  t-att-selected="'dian_tipo_documento' in checkout and checkout['dian_tipo_documento'] == '42'">Nº identificaciín extranjera:</option>
+                </select>
+            </t>
+        </xpath>
+        <xpath expr="//select[@name='state_id']" position="replace">
+          <t>
+             
+            </t>
+        </xpath>
+      
+        <xpath expr="//label[@for='state_id']" position="replace">
+            <t> 
+               <label class="col-form-label" for="state_id"></label>    
+            </t>
+        </xpath>  
+         <xpath expr="//form[@class='checkout_autoformat']/div[@class='form-row']/div[12]" position="after">
+            <t> 
+                <div class="div_district form-group  col-lg-6">
+                    <label class="col-form-label" for="district_id">Municipio / Distrícto</label>                 
+                    <select name="district_id"  class="form-control ">
+                    </select>     
+                </div>           
+            </t>
+        </xpath>
+        <xpath expr="//form[@class='checkout_autoformat']/div[@class='form-row']/div[12]" position="after">
+            <t> 
+                <div class="div_state form-group  col-lg-6">
+                    <label class="col-form-label" for="state_id">Departamento / Estado</label>                 
+                    <select name="state_id"  class="form-control ">
+                    </select>     
+                </div>           
+            </t>
+        </xpath>
+       
+          
+        <xpath expr="//input[@name='field_required']" position="replace">
+            <t>
+             <input type="hidden" name="field_required" t-att-value="'zip,phone,name,dian_tipo_documento'" />
+            </t>
+        </xpath>
+        
+    </template>
+    </data>
+</odoo>

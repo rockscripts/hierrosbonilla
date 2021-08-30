@@ -52,7 +52,7 @@
                <label class="col-form-label" for="state_id"></label>    
             </t>
         </xpath>  
-         <xpath expr="//form[@class='checkout_autoformat']/div[@class='form-row']/div[12]" position="after">
+         <!--<xpath expr="//form[@class='checkout_autoformat']/div[@class='form-row']/div[12]" position="after">
             <t> 
                 <div class="div_district form-group  col-lg-6">
                     <label class="col-form-label" for="district_id">Municipio / Distrícto</label>                 
@@ -69,7 +69,7 @@
                     </select>     
                 </div>           
             </t>
-        </xpath>
+        </xpath>-->
        
           
         <xpath expr="//input[@name='field_required']" position="replace">

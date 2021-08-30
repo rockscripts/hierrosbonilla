@@ -19,3 +19,4 @@ from . import website_page
 from . import pos_session
 from . import dian_edocs
 from . import mail_template
+from . import uom_uom

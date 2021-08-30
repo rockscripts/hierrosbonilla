@@ -13,7 +13,7 @@
                 <link href="/dian_efact/static/src/css/quote_template.css" rel="stylesheet"/>  
             </xpath>
 
-           <xpath expr="//table[hasclass('o_main_table')]" position="before">
+           <!--<xpath expr="//table[hasclass('o_main_table')]" position="before">
            <table class="table table-sm table-cst" style="margin-bottom:-0px;margin-top:20px;margin-right:2px">
                 <tr>
                     <td colspan="5">
@@ -88,7 +88,7 @@
                    </table>
                    
                    
-            </xpath>
+            </xpath>-->
            
         </template>
     </data>

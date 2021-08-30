@@ -24,8 +24,8 @@ class res_company(models.Model):
     dian_municipio = fields.Selection(
         selection='_get_municipios', string="Municipio")    
     district_id = fields.Many2one('res.country.state', 'Distrito')
-    dian_responsabilidades = fields.Selection(selection="_get_responsabilidades", string='Responsabilidad Físcal', default='O-12')
-    dian_es_autoretenedor = fields.Boolean(string='dian_es_autoretenedor')
+    dian_responsabilidades = fields.Selection(selection="_get_responsabilidades", string='Responsabilidad Físcal', default='R-99-PN')
+    dian_es_autoretenedor = fields.Boolean(string='¿Es Autorretenedor?')
     
     @api.onchange("district_id")
     def district_id_changed(self):
@@ -138,4 +138,3 @@ class res_company(models.Model):
         except Exception as e:
             # exc_traceback = sys.exc_info()
             raise Warning(str("ERROR | "+getattr(e, 'message', repr(e)))+" ON LINE "+str(format(sys.exc_info()[-1].tb_lineno)))
-

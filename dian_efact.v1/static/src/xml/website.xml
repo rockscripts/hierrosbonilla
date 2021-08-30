@@ -1,0 +1,15 @@
+<templates>
+<t t-extend="website.DateRangeButtons">
+    <t t-jquery=".d-md-inline-block" t-operation="replace">
+        <div class="btn-group d-none d-md-inline-block float-right" style="margin-right: 20px;">
+            <t t-foreach="widget.websites" t-as="website">
+                <button t-attf-class="btn btn-secondary js_website #{website.selected ? 'active' : ''}"
+                        t-att-data-company-id="website.company_id"
+                        t-att-data-website-id="website.id">
+                    <t t-esc="website.name"/>
+                </button>
+            </t>
+        </div>
+    </t>
+</t>
+</templates>

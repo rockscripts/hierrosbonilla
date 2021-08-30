@@ -1,11 +1,40 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
+        <record id="product_uom_form_view_inherit" model="ir.ui.view">
+            <field name="name">dian_uom.product_uom_form_view_inherit</field>
+            <field name="model">uom.uom</field>
+            <field name="inherit_id" ref="uom.product_uom_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[last()]" position="inside">
+                    <group col="0">
+                        <field name="dian_unit_code"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!--
+        <record id="dian_account_invoice_tree_view_inherit" model="ir.ui.view">
+            <field name="name">dian_account.invoice_tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[name='date_invoice']" position="after">
+                    <field name="fe_sequence"/>
+                </xpath>
+            </field>
+        </record>
+        -->
+
         <record id="invoice_form_inherit" model="ir.ui.view">
             <field name="name">account.invoice.form.inherit</field>
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="after">
+                    <div> <small><field name="fe_sequence"/></small> </div>
+                </xpath>
                 <xpath expr="//page[@name='other_info']" position="after">
                     <page string="DIAN e-Fact" name='e_fact'>
                         <div class="status-requested-container">
@@ -29,12 +58,13 @@
                         </div>
                         <group>
                             <field name="api_message" string='Estado' placeholder='Documento contable sin emitir'/>
-                            <field name="is_exportation" string='¿Tipo exportacion?'  attrs="{'readonly':['|',('state','=','paid'),('state','=','open')]}"/>
+                            <field name="is_exportation" string='Otra Divisa'  attrs="{'readonly':['|',('state','=','paid'),('state','=','open')]}"/>
                             <field name="calculation_rate" string='Tasa de Cambio' placeholder='TRM o tasa 0.00030'  attrs="{'invisible':[('is_exportation','=',False)],'required':[('is_exportation','=',True)],'readonly':['|',('state','=','paid'),('state','=','open')]}" style="max-width:200px"/>
                             <field name="exporting_currency" string='Divisa Objetivo'   attrs="{'invisible':[('is_exportation','=',False)],'readonly':['|',('state','=','paid'),('state','=','open')]}" style="max-width:200px"/>
                             <field name="discrepance_text" attrs="{'invisible':[('discrepance_text','=','')]}"/>
                             <field name="dian_request_status" class="dian_request_status" invisible="1"/>
                             <field name="qr_url" widget ="url" class="cufe_url"/>
+                            <field name="ad_response_api" string='Attached Document' placeholder='Documento sin emitir'/>
                             <!--
                                 <field name="signed_document" attrs="{'invisible':[('signed_document','=',None)]}"/><field name="unsigned_document" attrs="{'invisible':[('unsigned_document','=',None)]}"/><field name="response_document" attrs="{'invisible':[('response_document','=',None)]}"/>
                             -->
@@ -214,8 +244,7 @@
             <field name="model">res.company</field>
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='vat']" position="before">    
-                                  
+                <xpath expr="//field[@name='vat']" position="before">                                      
                     <field name="dian_tipo_documento" string='Tipo Documento' default="31"/>                   
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="before">
@@ -231,15 +260,16 @@
                 <xpath expr="//field[@name='vat']" position="before">
                     <field name="dian_regimen" string='Régimen'/>
                     <field name="dian_responsabilidades" string='Responsabilidad Físcal' default="0-12"/>
-		    <field name="dian_es_autoretenedor" string='¿Es Autorretenedor?'/>
+                    <field name="dian_es_autoretenedor" string='¿Es Autorretenedor?'/>
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="before">
                     <field name="dian_tipo_persona" string='Tipo Persona' default="1"/>
                     <field name="dian_tipo_documento" string='Tipo Documento'/>
-		    <field name="vat" string='ID / NIT' placeholder="" class="res_partner_vat"/>
+                     <field name="vat" string='ID / NIT' placeholder="" class="res_partner_vat"/>
                     <field name="dian_ciiu" string='CIIU(s)' placeholder="6201;6202"/>
                 </xpath>
-                <xpath expr="//field[@name='vat']" position="after">
+                <xpath expr="//field[@name='vat']" position="after">  
+                    <field name="vat_dv" string='DV' placeholder="" readonly="1"/>                 
                     <button class="go-rues">
                         <a href="https://muisca.dian.gov.co/WebRutMuisca/DefConsultaEstadoRUT.faces" target="_blank">
                             <i class="fa fa-info-circle"></i> Consultar
@@ -253,7 +283,7 @@
                     <field name="dian_matricula" string='Matricula Mercantil'  class="res_partner_matricula"/>
                 </xpath>
                 <xpath expr="//field[@name='dian_matricula']" position="before">
-                     <field name="vat_dv" string='DV' placeholder="" invisible="1"/>
+                     
                      <field name="id" invisible="1"/>  
                 </xpath>
                 
@@ -268,7 +298,7 @@
                     <field name="id" id="partner_id_vat" invisible="1"/>
                     <field name="dian_tipo_persona" string='Tipo Persona' default="1"/>
                     <field name="dian_regimen" string='Régimen' default="00"/>
-                    <field name="dian_responsabilidades" string='Responsabilidad Físcal' default="0-49"/>
+                    <field name="dian_responsabilidades" string='Responsabilidad Físcal' default="R-99-PN"/>
                 </xpath>
                 <xpath expr="//field[@name='l10n_co_document_type']" position="replace">
                     <field name="dian_tipo_documento" string='Tipo Documento' default="31"/>
@@ -349,13 +379,14 @@
                                 </td>
                                 <td></td>
                             </tr>
-                            <tr class="dian_product_code">
+                            <tr class="dian_product_code1">
                                 <td>
                                     <label for="sunat_product_code"/>
-                                    <field name="sunat_product_code" string='Código Producto(opcional)' id="sunat_product_code" class="ItemClassificationCode"/>
+                                    <field name="sunat_product_code"  id="sunat_product_code" class="ItemClassificationCode" placeholder="18937100-7"/>
                                 </td>
                                 <td>
-                                    <i class="selector_sunat_product_code fa fa-external-link btn btn-secondary "></i>
+                                   <a class="info-item-class" tarjet="_blank" href="http://www.cpv.enem.pl/es/18937100-7"><i class="fa fa-info"></i></a>
+                                   <!-- <i class="selector_sunat_product_code fa fa-external-link btn btn-secondary "></i>-->
                                 </td>
                             </tr>
                             <tr>

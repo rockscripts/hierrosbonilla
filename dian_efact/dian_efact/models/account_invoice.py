@@ -20,8 +20,9 @@ import pwd
 import sys
 from lxml import etree
 from io import BytesIO
+import logging
+_logger = logging.getLogger(__name__)
 from dianservice.dianservice import Service
-
 
 class account_invoice(models.Model):
 
@@ -66,7 +67,7 @@ class account_invoice(models.Model):
         compute='_current_company_id', store=False)
 
     dian_payment_means_id = fields.Selection(
-        [('1','Contado'),('2','Cŕedito')], string="Tipo de operación", default="1") 
+        [('1','Contado')], string="Tipo de Pago", default="1") 
 
     dian_payment_means_code = fields.Selection(
         selection='_get_payment_means_code', string="Método del pago", default="10")
@@ -78,12 +79,33 @@ class account_invoice(models.Model):
     dian_operation_type = fields.Selection(
         selection='_get_operation_types', string="Tipo de operación", default="10")
 
-    qr_url = fields.Char(name='qr_url', string="CUFE", placeholder="cufe - alghoritm")
+    qr_url = fields.Char(name='qr_url', string="CUFE", placeholder="cufe - url")
+
+    cufe = fields.Char(name='cufe', string="CUFE", placeholder="cufe")
+
+    letters_total = fields.Char(name='letters_total', string="Total en Letras")
+
+    ad_response_api = fields.Text(string="Attached Document")
+
+    fe_sequence = fields.Char(string="", compute="_get_fe_sequence")
 
     _columns = {'api_message': fields.Text(
         'Estado'), 'discrepance': fields.Text('Discrepancia')}
     _defaults = {'api_message': 'Documento contable sin emitir.',
                  'diario': 'factura', 'discrepance': ''}
+    
+    def _get_fe_sequence(self):
+        _logger.warning("PREFERENCE")
+        for record in self:
+            _logger.warning(record.number)
+            if(record.number):
+                journal_code = record.journal_id.code
+                _logger.warning(journal_code)
+                if(str(journal_code) == "FAC" or str(journal_code) == "INV" or str(journal_code) == "EFACT"  or str(journal_code) == "NDB" or str(journal_code) == "NCR" ):
+                    prefix = record.company_id.dian_prefijo_resolucion_periodo
+                    sequence = str(record.number)[8:]
+                    _logger.warning(str(prefix) + str(sequence))
+                    record.fe_sequence = str(prefix) + str(sequence)
 
     @api.onchange('reference')
     def on_change_reference(self):
@@ -130,6 +152,8 @@ class account_invoice(models.Model):
         dian_request_type = "Automatizada"
         processInvoiceAction = "fill_only"
 
+        res_config_settings = self.env['res.config.settings'].search([], limit=1)
+
         if(eDocumentType == "BOLV" or eDocumentType == "POSV"):
             for invoice in self:
                 self.qr_image =  self.generate_QR(str(invoice.number))
@@ -148,6 +172,7 @@ class account_invoice(models.Model):
                 items = invoice.invoice_line_ids
                 global_discounts = []
                 for item in items:
+
                     item_tributos = []
                     item_global_discount = []
                     item_discount = []
@@ -180,31 +205,83 @@ class account_invoice(models.Model):
                     # line discount
                     if(float(item.discount) > float(0.0)):
                         item_discount = {
-                            "codigo": str("08"),
-                            "razon": str("Descuento por actualización de productos / servicios"),
+                            "codigo": str("11"),
+                            "razon": str("Otro Descuento"),
                             "porcentaje": item.discount,
                             "monto": str(float(float((item.price_unit * item.quantity)) * float(item.discount/100)))
                         }
 
                     for tax in item.invoice_line_tax_ids:
-                        impuesto = tax.amount/100
-                        monto_afectacion_tributo = float(
-                            (subTotalVenta * impuesto))
+                        
+                        if(tax.amount_type=="group"):
+                            children_taxes = tax.children_tax_ids
+                            for children_tax in children_taxes:
+                                impuesto = children_tax.amount/100
+                                monto_afectacion_tributo = float(
+                                    (subTotalVenta * impuesto))
 
-                        totalVenta += monto_afectacion_tributo
+                                totalVenta += monto_afectacion_tributo
 
-                        if(not invoice.company_id.dian_es_autoretenedor and (tax.dian_tributo == "05"  or tax.dian_tributo == "06"  or tax.dian_tributo == "07"  or tax.dian_tributo == "08")):
-                            if(float(tax.amount)<0):                                
-                                totalVenta -= monto_afectacion_tributo
+                                if(not invoice.company_id.dian_es_autoretenedor and (children_tax.dian_tributo == "05"  or children_tax.dian_tributo == "06"  or children_tax.dian_tributo == "07"  or children_tax.dian_tributo == "08")):
+                                    if(float(children_tax.amount)<0):                                
+                                        totalVenta -= monto_afectacion_tributo
 
-                        item_tributo = {
-                            "codigo": tax.dian_tributo,
-                            "porcentaje": abs(float(tax.amount)),
-                            "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
-                            "total_venta": subTotalVenta
-                        }
-                        if(float(monto_afectacion_tributo) > 0):
-                            item_tributos.append(item_tributo)
+                                item_tributo = {
+                                    "codigo": children_tax.dian_tributo,
+                                    "porcentaje": abs(float(children_tax.amount)),
+                                    "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
+                                    "total_venta": subTotalVenta
+                                }
+                                if(float(monto_afectacion_tributo) >= 0):
+                                    item_tributos.append(item_tributo)
+                        else:
+
+                            monto_afectacion_tributo = float(0)
+                            if(tax.amount_type=="fixed"):
+                                impuesto = tax.amount * item.quantity                                                
+                                monto_afectacion_tributo = ((impuesto))
+                                if(bool(tax.price_include)==True):
+                                    monto_afectacion_tributo = subTotalVenta - ((subTotalVenta / ((float(impuesto)/100) + 1)))
+
+                            if(tax.amount_type=="percent"):
+                                impuesto = tax.amount                                      
+                                monto_afectacion_tributo = ((subTotalVenta * (float(impuesto)/100)))
+
+                                if(bool(tax.price_include)==True):
+                                    monto_afectacion_tributo = subTotalVenta - ((subTotalVenta / ((float(impuesto)/100) + 1)))   
+
+                            if(tax.amount_type=="division"):
+                                impuesto = tax.amount      
+                                monto_afectacion_tributo = ((subTotalVenta * (float(impuesto)/100)))
+
+                                _logger.warning("monto_afectacion_tributo")
+                                _logger.warning(monto_afectacion_tributo)                          
+
+                            if(res_config_settings):
+                                for res_config_setting in res_config_settings: 
+                                    if(res_config_setting.sale_show_tax == "subtotal"):
+                                        subTotalVenta = subTotalVenta - monto_afectacion_tributo
+
+                            totalVenta += monto_afectacion_tributo
+
+                            if(res_config_settings):
+                                for res_config_setting in res_config_settings: 
+                                    if(res_config_setting.sale_show_tax == "subtotal"):
+                                        totalVenta = totalVenta - monto_afectacion_tributo
+
+                            if(not invoice.company_id.dian_es_autoretenedor and (tax.dian_tributo == "05"  or tax.dian_tributo == "06"  or tax.dian_tributo == "07"  or tax.dian_tributo == "08")):
+                                if(float(tax.amount)<0):                                
+                                    totalVenta -= monto_afectacion_tributo
+
+                            item_tributo = {
+                                "codigo": tax.dian_tributo,
+                                "porcentaje": abs(float(tax.amount)),
+                                "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
+                                "total_venta": subTotalVenta
+                            }
+                            if(float(monto_afectacion_tributo) >= 0):
+                                item_tributos.append(item_tributo)
+
 
                     tributos_globales = self.add_global_tributes(
                         item_tributos, tributos_globales)
@@ -212,11 +289,12 @@ class account_invoice(models.Model):
                     dian_item = {
                         'id': str(item.id),
                         'cantidad': str(item.quantity),
+                        'unidadMedida':str(item.product_id.uom_id.dian_unit_code),
                         'descripcion': item.name,
                         'brand_name': item.product_id.dian_brand_name,
                         'model': item.product_id.dian_item_model,
                         'precioUnidad': item.price_unit,
-                        'clasificacionProductoServicioCodigo': self.get_sunat_product_code_classification(item.product_id.id),
+                        'clasificacionProductoServicioCodigo': self.get_sunat_product_code_classification(item.product_id),
                         "subTotalVenta": subTotalVenta,
                         'totalVenta': totalVenta,
                         "tributos": item_tributos,
@@ -377,10 +455,6 @@ class account_invoice(models.Model):
                 DianService.sunatAPI.dian_data = dian_data["dian"]
                 DianResponse = DianService.processCreditNote(dian_data)
 
-                # save xml documents steps for reference in edocs
-                # self.response_document = DianResponse["xml_response"]
-                # self.response_document_filename = str("R_")+nombre_archivo_xml+str(".xml")
-
                 self.signed_document = DianResponse["xml_signed"]
                 self.signed_document_filename = nombre_archivo_xml+str(".xml")
 
@@ -393,6 +467,7 @@ class account_invoice(models.Model):
                 
                 self.qr_in_report = True
                 self.dian_request_type = dian_request_type
+                self.letters_total = self.price_to_letter(dian_data["totalVentaGravada"])
                 # raise Warning("GENERATED")
                 if(DianResponse["status"] == "OK"):
                     self.api_message = "ESTADO: " + \
@@ -400,7 +475,19 @@ class account_invoice(models.Model):
                         "DESCRIPCIÓN: "+str(DianResponse["body"])
                     self.dian_request_status = 'OK'
                     self.qr_url = DianResponse["track_id"]["qr_url"]
+                    self.cufe = DianResponse["track_id"]["cufe"]
                     self.qr_image = self.generate_QR(self.qr_url)
+                    self.letters_total = self.price_to_letter(dian_data["totalVentaGravada"])
+
+                    try:
+                        A_D_response = DianService.processAttachedDocument(dian_data)
+                        if('status' in A_D_response):
+                            self.ad_response_api = A_D_response["body"]
+                    except Exception as e:
+                        exc_traceback = sys.exc_info()
+                        self.ad_response_api = getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno)
+                        print(getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno))
+
                     return super(account_invoice, self).invoice_validate()
                 else:
                     self.dian_request_status = 'FAIL'
@@ -422,6 +509,7 @@ class account_invoice(models.Model):
                 items = invoice.invoice_line_ids
                 global_discounts = []
                 for item in items:
+
                     item_tributos = []
                     item_global_discount = []
                     item_discount = []
@@ -454,31 +542,88 @@ class account_invoice(models.Model):
                     # line discount
                     if(float(item.discount) > float(0.0)):
                         item_discount = {
-                            "codigo": str("08"),
-                            "razon": str("Descuento por actualización de productos / servicios"),
+                            "codigo": str("11"),
+                            "razon": str("Otro Descuento"),
                             "porcentaje": item.discount,
                             "monto": str(float(float((item.price_unit * item.quantity)) * float(item.discount/100)))
                         }
+                    
+                    _logger.warning("invoice_line_tax_ids")
+                    _logger.warning(item.invoice_line_tax_ids)
+                    
 
                     for tax in item.invoice_line_tax_ids:
-                        impuesto = tax.amount/100
-                        monto_afectacion_tributo = float(
-                            (subTotalVenta * impuesto))
+                        _logger.warning(tax.amount_type)
+                        _logger.warning(tax.amount)
+                        if(tax.amount_type=="group"):
+                            children_taxes = tax.children_tax_ids
+                            for children_tax in children_taxes:
+                                impuesto = children_tax.amount/100
+                                monto_afectacion_tributo = float(
+                                    (subTotalVenta * impuesto))
 
-                        totalVenta += monto_afectacion_tributo
+                                totalVenta += monto_afectacion_tributo
 
-                        if(not invoice.company_id.dian_es_autoretenedor and (tax.dian_tributo == "05"  or tax.dian_tributo == "06"  or tax.dian_tributo == "07"  or tax.dian_tributo == "08")):
-                            if(float(tax.amount)<0):                                
-                                totalVenta -= monto_afectacion_tributo
+                                if(not invoice.company_id.dian_es_autoretenedor and (children_tax.dian_tributo == "05"  or children_tax.dian_tributo == "06"  or children_tax.dian_tributo == "07"  or children_tax.dian_tributo == "08")):
+                                    if(float(children_tax.amount)<0):                                
+                                        totalVenta -= monto_afectacion_tributo
 
-                        item_tributo = {
-                            "codigo": tax.dian_tributo,
-                            "porcentaje": abs(float(tax.amount)),
-                            "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
-                            "total_venta": subTotalVenta
-                        }
-                        if(float(monto_afectacion_tributo) > 0):
-                            item_tributos.append(item_tributo)
+                                item_tributo = {
+                                    "codigo": children_tax.dian_tributo,
+                                    "porcentaje": abs(float(children_tax.amount)),
+                                    "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
+                                    "total_venta": subTotalVenta
+                                }
+                                if(float(monto_afectacion_tributo) >= 0):
+                                    item_tributos.append(item_tributo)
+                        else:
+
+                            monto_afectacion_tributo = float(0)
+                            if(tax.amount_type=="fixed"):
+                                impuesto = tax.amount * item.quantity                                                
+                                monto_afectacion_tributo = ((impuesto))
+                                if(bool(tax.price_include)==True):
+                                    monto_afectacion_tributo = subTotalVenta - ((subTotalVenta / ((float(impuesto)/100) + 1)))
+
+                            if(tax.amount_type=="percent"):
+                                impuesto = tax.amount                                      
+                                monto_afectacion_tributo = ((subTotalVenta * (float(impuesto)/100)))
+
+                                if(bool(tax.price_include)==True):
+                                    monto_afectacion_tributo = subTotalVenta - ((subTotalVenta / ((float(impuesto)/100) + 1)))               
+
+                            if(tax.amount_type=="division"):
+                                impuesto = tax.amount  
+                                monto_afectacion_tributo = ((subTotalVenta * (float(impuesto)/100)))
+
+                                _logger.warning("monto_afectacion_tributo")
+                                _logger.warning(monto_afectacion_tributo)          
+
+                            if(res_config_settings):
+                                for res_config_setting in res_config_settings: 
+                                    if(res_config_setting.sale_show_tax == "subtotal"):
+                                        subTotalVenta = subTotalVenta - monto_afectacion_tributo
+
+                            totalVenta += monto_afectacion_tributo
+
+                            if(res_config_settings):
+                                for res_config_setting in res_config_settings: 
+                                    if(res_config_setting.sale_show_tax == "subtotal"):
+                                        totalVenta = totalVenta - monto_afectacion_tributo
+
+                            if(not invoice.company_id.dian_es_autoretenedor and (tax.dian_tributo == "05"  or tax.dian_tributo == "06"  or tax.dian_tributo == "07"  or tax.dian_tributo == "08")):
+                                if(float(tax.amount)<0):                                
+                                    totalVenta -= monto_afectacion_tributo
+
+                            item_tributo = {
+                                "codigo": tax.dian_tributo,
+                                "porcentaje": abs(float(tax.amount)),
+                                "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
+                                "total_venta": subTotalVenta
+                            }
+                            if(float(monto_afectacion_tributo) >= 0):
+                                item_tributos.append(item_tributo)
+
 
                     tributos_globales = self.add_global_tributes(
                         item_tributos, tributos_globales)
@@ -486,11 +631,12 @@ class account_invoice(models.Model):
                     dian_item = {
                         'id': str(item.id),
                         'cantidad': str(item.quantity),
+                        'unidadMedida':str(item.product_id.uom_id.dian_unit_code),
                         'descripcion': item.name,
                         'brand_name': item.product_id.dian_brand_name,
                         'model': item.product_id.dian_item_model,
                         'precioUnidad': item.price_unit,
-                        'clasificacionProductoServicioCodigo': self.get_sunat_product_code_classification(item.product_id.id),
+                        'clasificacionProductoServicioCodigo': self.get_sunat_product_code_classification(item.product_id),
                         "subTotalVenta": subTotalVenta,
                         'totalVenta': totalVenta,
                         "tributos": item_tributos,
@@ -542,11 +688,6 @@ class account_invoice(models.Model):
                         self.calculation_rate)  # "0.00030"
 
                 invoice_billing_reference = self.get_invoice_billing_reference(invoice.refund_invoice_id,invoice.company_id.dian_xml_client_path)
-                
-                #f = open("/odoo_rockscripts/custom/addons/dian_efact/data.json",'a')
-                #f.write(str(self))
-                #f.close()
-                #raise Warning(invoice.discrepance_text)
 
                 dian_data = {
                     "serie": str("fd"),
@@ -635,9 +776,7 @@ class account_invoice(models.Model):
                     "licencia": "081OHTGAVHJZ4GOZJGJV",
                                 "client_path": invoice.company_id.dian_xml_client_path
                 }
-                
-                #with open('/odoo_rockscripts/custom/addons/dian_efact/data.json', 'w') as outfile:
-                #    json.dump(dian_data, outfile)
+
                 self.validate_dian_data(dian_data)
                 nombre_archivo_xml = str(
                     secuencia_serie)+str(invoice.company_id.vat)+str(secuencia_consecutivo)
@@ -657,14 +796,6 @@ class account_invoice(models.Model):
                 DianService.sunatAPI.dian_data = dian_data["dian"]
                 DianResponse = DianService.processDebitNote(dian_data)
 
-                #with open('/odoo_rockscripts/custom/addons/dian_efact/data.json', 'w') as outfile:
-                #    json.dump(dian_data, outfile)
-                #raise Warning("g")
-                # raise Warning(DianResponse["body"])
-                # save xml documents steps for reference in edocs
-                # self.response_document = DianResponse["xml_response"]
-                # self.response_document_filename = str("R_")+nombre_archivo_xml+str(".xml")
-
                 self.signed_document = DianResponse["xml_signed"]
                 self.signed_document_filename = nombre_archivo_xml+str(".xml")
 
@@ -676,6 +807,7 @@ class account_invoice(models.Model):
                 
                 self.qr_in_report = True
                 self.dian_request_type = dian_request_type
+                self.letters_total = self.price_to_letter(dian_data["totalVentaGravada"])
                 # raise Warning("GENERATED")
                 if(DianResponse["status"] == "OK"):
                     self.api_message = "ESTADO: " + \
@@ -683,7 +815,19 @@ class account_invoice(models.Model):
                         "DESCRIPCIÓN: "+str(DianResponse["body"])
                     self.dian_request_status = 'OK'
                     self.qr_url = DianResponse["track_id"]["qr_url"]
+                    self.cufe = DianResponse["track_id"]["cufe"]
                     self.qr_image = self.generate_QR(self.qr_url)
+                    self.letters_total = self.price_to_letter(dian_data["totalVentaGravada"])
+
+                    try:
+                        A_D_response = DianService.processAttachedDocument(dian_data)
+                        if('status' in A_D_response):
+                            self.ad_response_api = A_D_response["body"]
+                    except Exception as e:
+                        exc_traceback = sys.exc_info()
+                        self.ad_response_api = getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno)
+                        print(getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno))
+
                     return super(account_invoice, self).invoice_validate()
                 else:
                     self.dian_request_status = 'FAIL'
@@ -737,35 +881,92 @@ class account_invoice(models.Model):
                         continue
                     else:
                         pass
-
+                    
                     # line discount
                     if(float(item.discount) > float(0.0)):
                         item_discount = {
-                            "codigo": str("08"),
-                            "razon": str("Descuento por actualización de productos / servicios"),
+                            "codigo": str("11"),
+                            "razon": str("Otro Descuento"),
                             "porcentaje": item.discount,
                             "monto": str(float(float((item.price_unit * item.quantity)) * float(item.discount/100)))
                         }
 
+                    _logger.warning("invoice_line_tax_ids")
+                    _logger.warning(item.invoice_line_tax_ids)                    
                     for tax in item.invoice_line_tax_ids:
-                        impuesto = tax.amount/100
-                        monto_afectacion_tributo = float(
-                            (subTotalVenta * impuesto))
 
-                        totalVenta += monto_afectacion_tributo
+                        _logger.warning(tax.amount_type)
+                        _logger.warning(tax.amount)
 
-                        if(not invoice.company_id.dian_es_autoretenedor and (tax.dian_tributo == "05"  or tax.dian_tributo == "06"  or tax.dian_tributo == "07"  or tax.dian_tributo == "08")):
-                            if(float(tax.amount)<0):                                
-                                totalVenta -= monto_afectacion_tributo
+                        if(tax.amount_type=="group"):
+                            children_taxes = tax.children_tax_ids
+                            for children_tax in children_taxes:
+                                impuesto = children_tax.amount/100
+                                monto_afectacion_tributo = float(
+                                    (subTotalVenta * impuesto))
 
-                        item_tributo = {
-                            "codigo": tax.dian_tributo,
-                            "porcentaje": abs(float(tax.amount)),
-                            "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
-                            "total_venta": subTotalVenta
-                        }
-                        if(float(monto_afectacion_tributo) > 0):
-                            item_tributos.append(item_tributo)
+                                totalVenta += monto_afectacion_tributo
+
+                                if(not invoice.company_id.dian_es_autoretenedor and (children_tax.dian_tributo == "05"  or children_tax.dian_tributo == "06"  or children_tax.dian_tributo == "07"  or children_tax.dian_tributo == "08")):
+                                    if(float(children_tax.amount)<0):                                
+                                        totalVenta -= monto_afectacion_tributo
+
+                                item_tributo = {
+                                    "codigo": children_tax.dian_tributo,
+                                    "porcentaje": abs(float(children_tax.amount)),
+                                    "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
+                                    "total_venta": subTotalVenta
+                                }
+                                if(float(monto_afectacion_tributo) >= 0):
+                                    item_tributos.append(item_tributo)
+                        else:
+
+                            monto_afectacion_tributo = float(0)
+                            if(tax.amount_type=="fixed"):
+                                impuesto = tax.amount * item.quantity                                                
+                                monto_afectacion_tributo = ((impuesto))
+                                if(bool(tax.price_include)==True):
+                                    monto_afectacion_tributo = subTotalVenta - ((subTotalVenta / ((float(impuesto)/100) + 1)))
+
+                            if(tax.amount_type=="percent"):
+                                impuesto = tax.amount                                      
+                                monto_afectacion_tributo = ((subTotalVenta * (float(impuesto)/100)))
+
+                                if(bool(tax.price_include)==True):
+                                    monto_afectacion_tributo = subTotalVenta - ((subTotalVenta / ((float(impuesto)/100) + 1)))                                    
+
+                            if(tax.amount_type=="division"):
+                                impuesto = tax.amount      
+                                monto_afectacion_tributo = ((subTotalVenta * (float(impuesto)/100)))
+
+                                _logger.warning("monto_afectacion_tributo")
+                                _logger.warning(monto_afectacion_tributo)     
+
+                            
+                            if(res_config_settings):
+                                for res_config_setting in res_config_settings: 
+                                    if(res_config_setting.sale_show_tax == "subtotal"):
+                                        subTotalVenta = subTotalVenta - monto_afectacion_tributo
+
+                            totalVenta += monto_afectacion_tributo
+
+                            if(res_config_settings):
+                                for res_config_setting in res_config_settings: 
+                                    if(res_config_setting.sale_show_tax == "subtotal"):
+                                        totalVenta = totalVenta - monto_afectacion_tributo
+
+                            if(not invoice.company_id.dian_es_autoretenedor and (tax.dian_tributo == "05"  or tax.dian_tributo == "06"  or tax.dian_tributo == "07"  or tax.dian_tributo == "08")):
+                                if(float(tax.amount)<0):                                
+                                    totalVenta -= monto_afectacion_tributo
+
+                            item_tributo = {
+                                "codigo": tax.dian_tributo,
+                                "porcentaje": abs(float(tax.amount)),
+                                "montoAfectacionTributo": abs(float(monto_afectacion_tributo)),
+                                "total_venta": subTotalVenta
+                            }
+                            if(float(monto_afectacion_tributo) >= 0):
+                                item_tributos.append(item_tributo)
 
 
                     tributos_globales = self.add_global_tributes(
@@ -774,11 +975,12 @@ class account_invoice(models.Model):
                     dian_item = {
                         'id': str(item.id),
                         'cantidad': str(item.quantity),
+                        'unidadMedida':str(item.product_id.uom_id.dian_unit_code),
                         'descripcion': item.name,
                         'brand_name': item.product_id.dian_brand_name,
                         'model': item.product_id.dian_item_model,
                         'precioUnidad': item.price_unit,
-                        'clasificacionProductoServicioCodigo': self.get_sunat_product_code_classification(item.product_id.id),
+                        'clasificacionProductoServicioCodigo': self.get_sunat_product_code_classification(item.product_id),
                         "subTotalVenta": subTotalVenta,
                         'totalVenta': totalVenta,
                         "tributos": item_tributos,
@@ -787,8 +989,9 @@ class account_invoice(models.Model):
                     dian_items.append(dian_item)
                     totalVentaPedido += float(totalVenta)
                     subTotalPedido += float(subTotalVenta)
-                # EOF FOR
 
+                # EOF FOR
+                
                 tributos_globales = self.completeGlobalTributes(
                     tributos_globales)
 
@@ -828,17 +1031,7 @@ class account_invoice(models.Model):
                         "1.00")
                     data_exp["exportation"]["calculo_rate"] = str(
                         self.calculation_rate)  # "0.00030"
-
-                #p_dian_municipio = invoice.partner_id.dian_municipio
-                #p_dian_municipio = p_dian_municipio.split("|")
-                #p_municipio = p_dian_municipio[1]
-                #p_municipio_code = p_dian_municipio[0]
-#
-                #c_dian_municipio = invoice.company_id.dian_municipio
-                #c_dian_municipio = c_dian_municipio.split("|")
-                #c_municipio = c_dian_municipio[1]
-                #c_municipio_code = c_dian_municipio[0]
-
+                #raise Warning("IN")
                 dian_data = {
                     "serie": str("fv"),
                     "numero": str(secuencia_consecutivo),
@@ -923,9 +1116,10 @@ class account_invoice(models.Model):
                     "licencia": "081OHTGAVHJZ4GOZJGJV",
                                 "client_path": invoice.company_id.dian_xml_client_path
                 }
-                #with open('/odoo_rockscripts/custom/addons/dian_efact/log.json', 'w') as outfile:
-                #    json.dump(dian_data, outfile)
-                #raise Warning("in")
+
+                _logger.warning("dian_data")
+                _logger.warning(dian_data)
+                # raise Warning("IN")
 
                 self.validate_dian_data(dian_data)
                 nombre_archivo_xml = str(
@@ -940,36 +1134,44 @@ class account_invoice(models.Model):
                 DianService.fileXmlName = nombre_archivo_xml
                 DianService.fileZipName = nombre_archivo_zip
                 DianService.xmlClientPath = invoice.company_id.dian_xml_client_path
-                DianService.initDianAPI(
-                    invoice.company_id.dian_api_mode, "sendBill")
+                DianService.initDianAPI(invoice.company_id.dian_api_mode, "sendBill")
                 DianService.sunatAPI.processInvoiceAction = processInvoiceAction
                 DianService.sunatAPI.dian_data = dian_data["dian"]
                 DianResponse = DianService.processInvoice(dian_data)
-
-                #raise Warning(DianResponse['body'])
-                # save xml documents steps for reference in edocs
-                # self.response_document = DianResponse["xml_response"]
-                # self.response_document_filename = str("R_")+nombre_archivo_xml+str(".xml")
 
                 self.signed_document = DianResponse["xml_signed"]
                 self.signed_document_filename = nombre_archivo_xml+str(".xml")
 
                 self.unsigned_document = DianResponse["xml_unsigned"]
-                self.unsigned_document_filename = nombre_archivo_xml + \
-                    str(".xml")
+                self.unsigned_document_filename = nombre_archivo_xml + str(".xml")
                 
                 self.qr_image = self.generate_QR(str(dian_data['serie']) + str(dian_data['numero']))
                 
                 self.qr_in_report = True
                 self.dian_request_type = dian_request_type
-                # raise Warning("GENERATED")
+                self.letters_total = self.price_to_letter(dian_data["totalVentaGravada"])
+
+                _logger.warning("DianResponse")
+                _logger.warning(DianResponse)
+                
                 if(DianResponse["status"] == "OK"):
                     self.api_message = "ESTADO: " + \
                         str(DianResponse["status"])+"\n" + \
                         "DESCRIPCIÓN: "+str(DianResponse["body"])
                     self.dian_request_status = 'OK'
                     self.qr_url = DianResponse["track_id"]["qr_url"]
+                    self.cufe = DianResponse["track_id"]["cufe"]
                     self.qr_image = self.generate_QR(self.qr_url)
+                    self.letters_total = self.price_to_letter(dian_data["totalVentaGravada"])
+                    try:
+                        A_D_response = DianService.processAttachedDocument(dian_data)
+                        if('status' in A_D_response):
+                            self.ad_response_api = A_D_response["body"]
+                    except Exception as e:
+                        exc_traceback = sys.exc_info()
+                        self.ad_response_api = getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno)
+                        print(getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno))
+
                     return super(account_invoice, self).invoice_validate()
                 else:
                     self.dian_request_status = 'FAIL'
@@ -1127,15 +1329,19 @@ class account_invoice(models.Model):
             self.exporting_currency == "USD"
 
     def _get_active_currencies(self):
-        query = "select name, symbol from res_currency where active = TRUE"
-        request.cr.execute(query)
-        currencies = request.cr.dictfetchall()
         currencies_selection = []
-        for currency in currencies:
-            currencies_selection.append((currency['name'], str(
-                currency['symbol'])+str(" ")+str(currency['name'])))
+        try:
+            query = "select name, symbol from res_currency where active = True"
+            request.cr.execute(query)
+            currencies = request.cr.dictfetchall()
+            for currency in currencies:
+                currencies_selection.append((currency['name'], str(
+                    currency['symbol'])+str(" ")+str(currency['name'])))
+            return currencies_selection
+        except:
+            pass
         return currencies_selection
-
+        
     def _get_payment_means_code(self):
         XMLpath = os.path.dirname(os.path.abspath(__file__))+'/xml/XMLDian/'
         tree = etree.parse(XMLpath+"MediosPago-2.1.xml")
@@ -1237,14 +1443,32 @@ class account_invoice(models.Model):
         return tributos_globales
 
     def get_sunat_product_code_classification(self, item_id):
-        return str("")
-        query = "select sunat_product_code from product_template where id = " + \
-            str(item_id)
+        query = "select sunat_product_code from product_template where id = " + str(item_id.id)
         request.cr.execute(query)
         product = request.cr.dictfetchone()
-        sunat_product_code_parts = str(
-            product["sunat_product_code"]).split(" -- ")
-        return sunat_product_code_parts[0]
+        if(product):
+            if("sunat_product_code" in product):
+                return str(product["sunat_product_code"])
+            else:
+                query = "select sunat_product_code from product_template where id = " + str(item_id.product_tmpl_id.id)
+                request.cr.execute(query)
+                product = request.cr.dictfetchone()
+                if(product):
+                    if("sunat_product_code" in product):
+                        return str(product["sunat_product_code"])
+                else:
+                    return None
+        else:
+            query = "select sunat_product_code from product_template where id = " + str(item_id.product_tmpl_id.id)
+            request.cr.execute(query)
+            product = request.cr.dictfetchone()
+            if(product):
+                if("sunat_product_code" in product):
+                    return str(product["sunat_product_code"])
+                else:
+                    return None
+            else:
+                return None
 
     def get_global_discount_percent(self, item_id):
         query = "select discount_pc from pos_config where discount_product_id = " + \
@@ -1277,10 +1501,8 @@ class account_invoice(models.Model):
             if not os.path.exists(xmlPath+'/XMLcertificates/'+xmlClientPath):
                 os.makedirs(xmlPath+'/XMLcertificates/' +
                             xmlClientPath, mode=0o777)
-            # os.system("sudo su")
-            print('pre sudo')
+            os.system("sudo su")
             os.system("sudo chmod -R 0777 "+xmlPath)
-            print('pos sudo')
             if(os.stat(xmlPath+'/XMLdocuments/2_unsigned/'+xmlClientPath).st_mode != 16895 or
                os.stat(xmlPath+'/XMLdocuments/3_signed/'+xmlClientPath).st_mode != 16895 or
                os.stat(xmlPath+'/XMLdocuments/4_compressed/'+xmlClientPath).st_mode != 16895):
@@ -1394,6 +1616,7 @@ class account_invoice(models.Model):
         img.save(temp, format="PNG")
         return base64.b64encode(temp.getvalue())
     
+    
     def _generate_email_ubl_attachment(self):
         self.ensure_one()
         attachments = self.env['ir.attachment']
@@ -1429,18 +1652,16 @@ class account_invoice(models.Model):
             return encoded
         except Exception as e:
             exc_traceback = sys.exc_info()
-            #with open('/odoo_dian_v12/custom/addons/dian_efact/log.json', 'w') as outfile:
-            #    json.dump(getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno) + xmlPath+'/XMLdocuments/3_signed/'+ self.company_id.dian_emisor_nit + str("/") + self.company_id.dian_xml_client_path + str("/") + str(nombre_archivo_xml)+".xml", outfile)
             return None
         return None
 
     def restablecer_documento(self):
-        if(self.dian_request_status==str("OK")):
-            raise Warning('El documento no puede ser regenerado porque ya ha sido aceptado esta correcto. Se permite las acción de crear una rectificativa sobre este documento.')        
-
-        response = self.can_create_notes()
-        if(response["found"]==True):
-            raise Warning('El documento no puede ser regenerado porque tiene nota de crédito.')
+        #if(self.dian_request_status==str("OK")):
+        #    raise Warning('El documento no puede ser regenerado porque ya ha sido aceptado esta correcto. Se permite las acción de crear una rectificativa sobre este documento.')        
+#
+        #response = self.can_create_notes()
+        #if(response["found"]==True):
+        #    raise Warning('El documento no puede ser regenerado porque tiene nota de crédito.')
 
         self.state = "draft"
         self.dian_request_status = "No Emitido"
@@ -1465,3 +1686,84 @@ class account_invoice(models.Model):
             refund_invoice = {}
             refund_invoice["found"] = False
         return refund_invoice
+    
+
+    def price_to_letter(self, numero):
+        _logger.warning('numero')
+        _logger.warning(numero)
+        indicador = [("", ""), ("MIL", "MIL"), ("MILLON", "MILLONES"),
+                     ("MIL", "MIL"), ("BILLON", "BILLONES")]
+        entero = int(numero)
+        decimal = int(round((numero - entero)*100))
+        # print 'decimal : ',decimal
+        contador = 0
+        numero_letras = ""
+        while entero > 0:
+            a = entero % 1000
+            if contador == 0:
+                en_letras = self.price_to_letter_internal(a, 1).strip()
+            else:
+                en_letras = self.price_to_letter_internal(a, 0).strip()
+            if a == 0:
+                numero_letras = en_letras+" "+numero_letras
+            elif a == 1:
+                if contador in (1, 3):
+                    numero_letras = indicador[contador][0]+" "+numero_letras
+                else:
+                    numero_letras = en_letras+" " + \
+                        indicador[contador][0]+" "+numero_letras
+            else:
+                numero_letras = en_letras+" " + \
+                    indicador[contador][1]+" "+numero_letras
+            numero_letras = numero_letras.strip()
+            contador = contador + 1
+            entero = int(entero / 1000)
+        numero_letras = numero_letras
+        return numero_letras
+
+    def price_to_letter_internal(self, numero, sw):
+        lista_centana = ["", ("CIEN", "CIENTO"), "DOSCIENTOS", "TRESCIENTOS", "CUATROCIENTOS",
+                         "QUINIENTOS", "SEISCIENTOS", "SETECIENTOS", "OCHOCIENTOS", "NOVECIENTOS"]
+        lista_decena = ["", ("DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUINCE", "DIECISEIS", "DIECISIETE", "DIECIOCHO", "DIECINUEVE"),
+                        ("VEINTE", "VEINTI"), ("TREINTA",
+                                               "TREINTA Y "), ("CUARENTA", "CUARENTA Y "),
+                        ("CINCUENTA", "CINCUENTA Y "), ("SESENTA", "SESENTA Y "),
+                        ("SETENTA", "SETENTA Y "), ("OCHENTA", "OCHENTA Y "),
+                        ("NOVENTA", "NOVENTA Y ")
+                        ]
+        lista_unidad = ["", ("UN", "UNO"), "DOS", "TRES",
+                        "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE"]
+        centena = int(numero / 100)
+        decena = int((numero - (centena * 100))/10)
+        unidad = int(numero - (centena * 100 + decena * 10))
+        # print "centena: ",centena, "decena: ",decena,'unidad: ',unidad
+
+        texto_centena = ""
+        texto_decena = ""
+        texto_unidad = ""
+
+        # Validad las centenas
+        texto_centena = lista_centana[centena]
+        if centena == 1:
+            if (decena + unidad) != 0:
+                texto_centena = texto_centena[1]
+            else:
+                texto_centena = texto_centena[0]
+
+        # Valida las decenas
+        texto_decena = lista_decena[decena]
+        if decena == 1:
+            texto_decena = texto_decena[unidad]
+        elif decena > 1:
+            if unidad != 0:
+                texto_decena = texto_decena[1]
+            else:
+                texto_decena = texto_decena[0]
+        # Validar las unidades
+        # print "texto_unidad: ",texto_unidad
+        if decena != 1:
+            texto_unidad = lista_unidad[unidad]
+            if unidad == 1:
+                texto_unidad = texto_unidad[sw]
+
+        return "%s %s %s" % (texto_centena, texto_decena, texto_unidad)

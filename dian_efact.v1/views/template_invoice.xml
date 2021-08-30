@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+         <xpath expr="//h2" position="replace">
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+          <link href="/dian_efact/static/src/css/invoice_template_pdf.css" rel="stylesheet"/>    
+          <div class="invoice-number">
+                    <h2  t-if="'number' in o">
+                        <div t-if="o.journal_id.name">
+                            <span t-field="o.journal_id.name"/>
+                           
+                        </div>                        
+                        <div>
+                            <span t-field="o.number"/>
+                            <h6 t-field="o.discrepance_text"/>
+                             <div clas="dian-operation-type">
+                                <small><label t-esc="'Excluidos y Exentos'" t-if="o.dian_operation_type == '03'"/></small>
+                                <small><label t-esc="'Exportación'" t-if="o.dian_operation_type == '04'"/></small>
+                                <small><label t-esc="'Genérica'" t-if="o.dian_operation_type == '05'"/></small>
+                                <small><label t-esc="'Estandar'" t-if="o.dian_operation_type == '10'"/></small>
+                            </div>
+                        </div>
+                                            
+                    </h2>
+                    <h2>
+                        
+                        <div class="qr-container"  t-if="'qr_image' in o">
+                            <span t-field="o.qr_image" t-options='{"widget": "image"}'/>
+                        </div>
+                    </h2>
+                </div>       
+             <div class="adresses-company-partner">
+                <div class="addresses-container">
+                    <div class="company_address">
+                        <div class="address-title"><h4>Emisor</h4></div>
+                            <div class="company-vat">
+                                <strong>
+                                    <label t-esc="'C.C: '" t-if="company.dian_tipo_documento == '13'"/>
+                                    <label t-esc="'NIT: '" t-if="company.dian_tipo_documento == '31'"/>
+                                    <label t-esc="'Registro civil: '" t-if="company.dian_tipo_documento == '11'"/>
+                                    <label t-esc="'Pasaporte: '" t-if="company.dian_tipo_documento == '41'"/>
+                                    <label t-esc="'T. Identidad: '" t-if="company.dian_tipo_documento == '12'"/>
+                                    <label t-esc="'T. Extranjería: '" t-if="company.dian_tipo_documento == '21'"/>
+                                    <label t-esc="'C. Extranjería: '" t-if="company.dian_tipo_documento == '22'"/>
+                                    <label t-esc="'Documento de identificación extranjero: '" t-if="company.dian_tipo_documento == '42'"/>
+                                    <label t-esc="'NIT otro país: '" t-if="company.dian_tipo_documento == '50'"/>
+                                </strong>
+                                <span t-field="company.vat"/>
+                            </div>
+                        <div>
+                           <div>
+                                <div>
+                                    <span t-field="company.street"/>
+                                </div>
+                                 <div>
+                                    <span t-field="company.street2"/>
+                                </div>
+                                <div>
+                                    <span t-field="company.state_id.name"/>
+                                </div>
+                                <div>
+                                   <span t-field="company.district_id.name"/>
+                                </div>
+                                <div>
+                                    <span t-field="company.zip"/>
+                                </div>
+                                <div>
+                                    <span t-field="company.country_id.name"/>
+                                </div>
+                                <div  t-if="company.phone!=''">
+                                    <i class="fa fa-phone"></i> <span t-field="company.phone"/> 
+                                </div>                                
+                                <div  t-if="company.email">
+                                    <i class="fa fa-envelope"></i> <span t-field="company.email"/>
+                                </div>
+                                 
+                            </div>
+                    </div>
+                    </div>
+                        <div class="partner_address">
+                            <div class="address-title"><h4>Receptor</h4></div>
+                             <div>
+                                <strong><label><span t-field="o.partner_id.name"/></label></strong>
+                            </div>
+                            <div class="partner-vat">
+                                <strong>
+                                    <label t-esc="'C.C: '" t-if="o.partner_id.dian_tipo_documento == '13'"/>
+                                    <label t-esc="'NIT: '" t-if="o.partner_id.dian_tipo_documento == '31'"/>
+                                    <label t-esc="'Registro civil: '" t-if="o.partner_id.dian_tipo_documento == '11'"/>
+                                    <label t-esc="'Pasaporte: '" t-if="o.partner_id.dian_tipo_documento == '41'"/>
+                                    <label t-esc="'T. Identidad: '" t-if="o.partner_id.dian_tipo_documento == '12'"/>
+                                    <label t-esc="'T. Extranjería: '" t-if="o.partner_id.dian_tipo_documento == '21'"/>
+                                    <label t-esc="'C. Extranjería: '" t-if="o.partner_id.dian_tipo_documento == '22'"/>
+                                    <label t-esc="'Documento de identificación extranjero: '" t-if="company.dian_tipo_documento == '42'"/>
+                                    <label t-esc="'NIT otro país: '" t-if="company.dian_tipo_documento == '50'"/>
+                                </strong>
+                                : <span t-field="o.partner_id.vat"/>
+                            </div>
+                           
+                            <div>
+                                <div>
+                                    <span t-field="o.partner_id.street"/>
+                                </div>
+                                 <div>
+                                    <span t-field="o.partner_id.street2"/>
+                                </div>
+                                <div>
+                                    <span t-field="o.partner_id.state_id.name"/>
+                                </div>
+                                <div>
+                                   <span t-field="o.partner_id.district_id.name"/>
+                                </div>
+                                <div>
+                                    <span t-field="o.partner_id.zip"/>
+                                </div>
+                                <div>
+                                    <span t-field="o.partner_id.country_id.name"/>
+                                </div>
+                                 <div  t-if="o.partner_id.phone">
+                                    <i class="fa fa-phone"></i> <span t-field="o.partner_id.phone"/> 
+                                </div>
+                                 <div  t-if="o.partner_id.mobile">
+                                    <i class="fa fa-phone"></i> <span t-field="o.partner_id.mobile"/>
+                                </div>
+                                <div  t-if="o.partner_id.email">
+                                    <i class="fa fa-envelope"></i> <span t-field="o.partner_id.email"/>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </xpath>          
+    </template>
+
+    <template id="external_layout_header" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[@class='header']" position="replace">
+            <link href="/dian_efact/static/src/css/invoice_template.css" rel="stylesheet"/>
+            <div class="header" style="font-family: 'Roboto', sans-serif;font-weight: bold;">
+                <div style="display: table-cell;">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;opacity:1" alt="Logo"/>
+                </div>
+                <div style="padding-left:10px; color: black; font-size: 17px; display: table-cell;" t-esc="company.name.encode('utf-8', 'ignore').upper()"/>
+                <hr></hr>
+            </div>
+
+                 <div class="invoice-number">
+                    <h2  t-if="'number' in o">
+                        <span t-if="o.journal_id.name" t-field="o.journal_id.name"/>
+                        <div clas="dian-operation-type">
+                            <small><label t-esc="'Excluidos y Exentos'" t-if="o.dian_operation_type == '03'"/></small>
+                            <small><label t-esc="'Exportación'" t-if="o.dian_operation_type == '04'"/></small>
+                            <small><label t-esc="'Genérica'" t-if="o.dian_operation_type == '05'"/></small>
+                            <small><label t-esc="'Estandar'" t-if="o.dian_operation_type == '10'"/></small>
+                        </div>
+                        <div>
+                            <span t-field="o.number"/>
+                            <h6 t-field="o.discrepance_text"/>    
+                        </div>
+                                            
+                    </h2>
+                    <h2>
+                        
+                        <div class="qr-container"   t-if="'qr_image' in o">
+                            <span t-field="o.qr_image" t-options='{"widget": "image"}'/>
+                        </div>
+                    </h2>
+                </div>
+        </xpath>
+    </template>
+    <template id="external_layout_footer" inherit_id="web.external_layout_standard">       
+        <xpath expr="//div[@class='text-center']" position="replace">
+                <center><a t-field="o.qr_url" t-if="'qr_image' in o" widget="url" text="Repesentación gráfica por la DIAN" style="font-size:8.5px" class="cufe-foot"/></center>
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/> <span t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img" aria-label="Email" title="Email"/> <span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img" aria-label="Website" title="Website"/> <span t-field="company.website"/></li>                  
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page:
+                        <span class="page"/>
+                        of
+                        <span class="topage"/>
+                    </div>
+                </div>
+        </xpath>
+    </template>
+    </data>
+</odoo>

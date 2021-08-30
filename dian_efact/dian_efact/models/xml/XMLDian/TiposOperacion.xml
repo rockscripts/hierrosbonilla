@@ -26,79 +26,6 @@
 		</Column>
 	</ColumnSet>
 	<SimpleCodeList>
-		<!--<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>01</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Combustibles</SimpleValue>
-			</Value>
-		</Row>
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>02</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Emisor es Autoretenedor</SimpleValue>
-			</Value>
-		</Row>-->
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>03</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Excluidos y Exentos</SimpleValue>
-			</Value>
-		</Row>
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>04</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Exportacion</SimpleValue>
-			</Value>
-		</Row>
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>05</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Generica</SimpleValue>
-			</Value>
-		</Row>
-		<!--<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>06</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Generica con pago anticipado</SimpleValue>
-			</Value>
-		</Row>
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>07</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Generica con periodo de facturacion</SimpleValue>
-			</Value>
-		</Row>
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>08</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Consorcio</SimpleValue>
-			</Value>
-		</Row>
-		<Row>
-			<Value ColumnRef="code">
-				<SimpleValue>09</SimpleValue>
-			</Value>
-			<Value ColumnRef="name">
-				<SimpleValue>Servicios AIU</SimpleValue>
-			</Value>
-			https://clauserp.com/blog/aspectos-importantes-en-los-servicios-aiu/
-		</Row>-->
 		<Row>
 			<Value ColumnRef="code">
 				<SimpleValue>10</SimpleValue>
@@ -107,21 +34,21 @@
 				<SimpleValue>Estandar</SimpleValue>
 			</Value>
 		</Row>
-		<!--<Row>
+		<Row>
 			<Value ColumnRef="code">
-				<SimpleValue>11</SimpleValue>
+				<SimpleValue>09</SimpleValue>
 			</Value>
 			<Value ColumnRef="name">
-				<SimpleValue>Mandatos bienes</SimpleValue>
+				<SimpleValue>AIU</SimpleValue>
 			</Value>
 		</Row>
 		<Row>
 			<Value ColumnRef="code">
-				<SimpleValue>12</SimpleValue>
+				<SimpleValue>11</SimpleValue>
 			</Value>
 			<Value ColumnRef="name">
-				<SimpleValue>Mandatos Servicios</SimpleValue>
+				<SimpleValue>Mandatos</SimpleValue>
 			</Value>
-		</Row>-->
+		</Row>
 	</SimpleCodeList>
 </gc:CodeList>

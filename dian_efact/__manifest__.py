@@ -17,11 +17,8 @@
 
     # always loaded
     'data': [
-#                'security/ir.model.access.csv',
                 'views/views.xml',
                 'views/templates.xml',
-                'views/template_invoice.xml',
-                'views/template_quote.xml',
                 'views/edocs.xml'
             ],
     'qweb': [
@@ -29,6 +26,5 @@
                 'static/src/xml/pos_screen.xml',
                 'static/src/xml/website.xml'
             ],
-    #"external_dependencies": {"python" : ["pytesseract"]},
     'installable': True,
 }

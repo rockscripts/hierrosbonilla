@@ -6,10 +6,10 @@
     color: white;
 }
 
-/*.o_main_navbar>ul>li>a,
+.o_main_navbar>ul>li>a,
 .o_main_navbar>ul>li>label {
     background: #888!important;
-}*/
+}
 
 .emission-container,
 .representantes {
@@ -269,4 +269,14 @@ input[name='vat_dv'] {
     padding: 1px;
     margin-right: 3px;
 }
-
+.info-item-class 
+{
+    margin-left: 9px;
+    font-size: 15px;
+    border-radius: 20px;
+    color: white;
+    background: darkblue;
+    padding: 3px;
+    padding-left: 9px;
+    padding-right: 8px;
+}

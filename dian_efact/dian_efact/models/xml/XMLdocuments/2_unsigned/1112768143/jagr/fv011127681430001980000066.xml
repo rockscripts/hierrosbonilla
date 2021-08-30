@@ -1,0 +1,766 @@
+<?xml version="1.0" ?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+   
+  
+   <ext:UBLExtensions>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent>
+            
+        
+            <sts:DianExtensions>
+               
+          
+               <sts:InvoiceControl>
+                  
+            
+                  <sts:InvoiceAuthorization>18763002376081</sts:InvoiceAuthorization>
+                  
+            
+                  <sts:AuthorizationPeriod>
+                     
+              
+                     <cbc:StartDate>2019-12-04</cbc:StartDate>
+                     
+              
+                     <cbc:EndDate>2021-06-04</cbc:EndDate>
+                     
+            
+                  </sts:AuthorizationPeriod>
+                  
+            
+                  <sts:AuthorizedInvoices>
+                     
+              
+                     <sts:Prefix>EINV</sts:Prefix>
+                     
+              
+                     <sts:From>980000000</sts:From>
+                     
+              
+                     <sts:To>980002867</sts:To>
+                     
+            
+                  </sts:AuthorizedInvoices>
+                  
+          
+               </sts:InvoiceControl>
+               
+          
+               <sts:InvoiceSource>
+                  
+            
+                  <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+                  
+          
+               </sts:InvoiceSource>
+               
+          
+               <sts:SoftwareProvider>
+                  
+            
+                  <sts:ProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="9" schemeName="31">1112768143</sts:ProviderID>
+                  
+            
+                  <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">93fb06a1-3dd7-442c-ae70-594c3d006a57</sts:SoftwareID>
+                  
+          
+               </sts:SoftwareProvider>
+               
+          
+               <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">287cd157bc97d16dd2aaf103b5ac6eb29cab16b8780dc9c14d33c7fdec9c43adbdb6585938f0a3f0dc0ac5ffb7992198</sts:SoftwareSecurityCode>
+               
+          
+               <sts:AuthorizationProvider>
+                  
+            
+                  <sts:AuthorizationProviderID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="4" schemeName="31">800197268</sts:AuthorizationProviderID>
+                  
+          
+               </sts:AuthorizationProvider>
+               
+          
+               <sts:QRCode>https://catalogo-vpfe.dian.gov.co/document/searchqr?documentkey=803e6c949ccddea24160c1e34beef35a8f9803496969f9c23085a31d7edde59e26b1d6144b07178ea8a1781eda7485b5</sts:QRCode>
+               
+        
+            </sts:DianExtensions>
+            
+      
+         </ext:ExtensionContent>
+         
+    
+      </ext:UBLExtension>
+      
+    
+      <ext:UBLExtension>
+         
+      
+         <ext:ExtensionContent/>
+         
+    
+      </ext:UBLExtension>
+      
+  
+   </ext:UBLExtensions>
+   
+  
+   <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+   
+  
+   <cbc:CustomizationID>10</cbc:CustomizationID>
+   
+  
+   <cbc:ProfileID>DIAN 2.1</cbc:ProfileID>
+   
+  
+   <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+   
+  
+   <cbc:ID>EINV980000066</cbc:ID>
+   
+  
+   <cbc:UUID schemeID="1" schemeName="CUFE-SHA384">803e6c949ccddea24160c1e34beef35a8f9803496969f9c23085a31d7edde59e26b1d6144b07178ea8a1781eda7485b5</cbc:UUID>
+   
+  
+   <cbc:IssueDate>2020-12-04</cbc:IssueDate>
+   
+  
+   <cbc:IssueTime>12:48:11-05:00</cbc:IssueTime>
+   
+  
+   <cbc:DueDate>2020-12-04</cbc:DueDate>
+   
+  
+   <cbc:InvoiceTypeCode>02</cbc:InvoiceTypeCode>
+   
+  
+   <cbc:Note>
+Factura:  CINCUENTA
+
+
+CUFE: ***************
+NumFac : EINV980000066
+FecFac : 2020-12-04
+HorFac : 12:48:11-05:00
+ValFac : 42.02
+CodImp1 : 01
+ValImp1 : 7.98
+CodImp2 : 04
+ValImp2 : 0.00
+CodImp3 : 03
+ValImp3 : 0.00
+ValTotFac : 50.00
+NitOFE : 1112768143
+NumAdq : 10418913547
+ClTec : d58aceba30bde71608c34f0a74d1594b476b8ee96979998694de4fc75b880bee
+TipAmbiente : 1
+
+CUFE cadena: EINV9800000662020-12-0412:48:11-05:0042.02017.98040.00030.0050.00111276814310418913547d58aceba30bde71608c34f0a74d1594b476b8ee96979998694de4fc75b880bee1
+CUFE sha384: 803e6c949ccddea24160c1e34beef35a8f9803496969f9c23085a31d7edde59e26b1d6144b07178ea8a1781eda7485b5
+</cbc:Note>
+   
+  
+   <cbc:DocumentCurrencyCode listAgencyName="United Nations Economic Commission for Europe" listID="ISO 4217 Alpha" listName="Currency">USD</cbc:DocumentCurrencyCode>
+   
+  
+   <cbc:LineCountNumeric>1</cbc:LineCountNumeric>
+   
+  
+   <cac:AccountingSupplierParty>
+      
+    
+      <cbc:AdditionalAccountID>2</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cbc:IndustryClassificationCode>6201;4741</cbc:IndustryClassificationCode>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>Jhon Alexander Grisales Rivera</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>63001</cbc:ID>
+               
+          
+               <cbc:CityName>Armenia</cbc:CityName>
+               
+          
+               <cbc:PostalZone>63001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Quindio</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>63</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>-</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>Jhon Alexander Grisales Rivera</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="9" schemeName="31">1112768143</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="49">R-99-PN</cbc:TaxLevelCode>
+            
+        
+            <cac:RegistrationAddress>
+               
+          
+               <cbc:ID>63001</cbc:ID>
+               
+          
+               <cbc:CityName>Armenia</cbc:CityName>
+               
+          
+               <cbc:PostalZone>63001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Quindio</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>63</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>-</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:RegistrationAddress>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>Jhon Alexander Grisales Rivera</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="9" schemeName="31">1112768143</cbc:CompanyID>
+            
+        
+            <cac:CorporateRegistrationScheme>
+               
+          
+               <cbc:ID>EINV</cbc:ID>
+               
+          
+               <cbc:Name>235019</cbc:Name>
+               
+        
+            </cac:CorporateRegistrationScheme>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>+57-3128097090</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>rockscripts@gmail.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingSupplierParty>
+   
+  
+   <cac:AccountingCustomerParty>
+      
+    
+      <cbc:AdditionalAccountID>2</cbc:AdditionalAccountID>
+      
+    
+      <cac:Party>
+         
+      
+         <cac:PartyIdentification>
+            
+        
+            <cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeID="" schemeName="50">10418913547</cbc:ID>
+            
+      
+         </cac:PartyIdentification>
+         
+      
+         <cac:PartyName>
+            
+        
+            <cbc:Name>CBSOLUTIONS</cbc:Name>
+            
+      
+         </cac:PartyName>
+         
+      
+         <cac:PhysicalLocation>
+            
+        
+            <cac:Address>
+               
+          
+               <cbc:ID>15001</cbc:ID>
+               
+          
+               <cbc:CityName>Lima</cbc:CityName>
+               
+          
+               <cbc:PostalZone>15001</cbc:PostalZone>
+               
+          
+               <cbc:CountrySubentity>Lima</cbc:CountrySubentity>
+               
+          
+               <cbc:CountrySubentityCode>15</cbc:CountrySubentityCode>
+               
+          
+               <cac:AddressLine>
+                  
+            
+                  <cbc:Line>-</cbc:Line>
+                  
+          
+               </cac:AddressLine>
+               
+          
+               <cac:Country>
+                  
+            
+                  <cbc:IdentificationCode>PE</cbc:IdentificationCode>
+                  
+            
+                  <cbc:Name languageID="es">Perú</cbc:Name>
+                  
+          
+               </cac:Country>
+               
+        
+            </cac:Address>
+            
+      
+         </cac:PhysicalLocation>
+         
+      
+         <cac:PartyTaxScheme>
+            
+        
+            <cbc:RegistrationName>CBSOLUTIONS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeName="50">10418913547</cbc:CompanyID>
+            
+        
+            <cbc:TaxLevelCode listName="49">R-99-PN</cbc:TaxLevelCode>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+          
+               <cbc:Name>IVA</cbc:Name>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:PartyTaxScheme>
+         
+      
+         <cac:PartyLegalEntity>
+            
+        
+            <cbc:RegistrationName>CBSOLUTIONS</cbc:RegistrationName>
+            
+        
+            <cbc:CompanyID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)" schemeName="50">10418913547</cbc:CompanyID>
+            
+      
+         </cac:PartyLegalEntity>
+         
+      
+         <cac:Contact>
+            
+        
+            <cbc:Telephone>+51 967 270 495</cbc:Telephone>
+            
+        
+            <cbc:ElectronicMail>ventas@cbsolsis.com</cbc:ElectronicMail>
+            
+      
+         </cac:Contact>
+         
+    
+      </cac:Party>
+      
+  
+   </cac:AccountingCustomerParty>
+   
+  
+   <cac:PaymentMeans>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:PaymentMeansCode>ZZZ</cbc:PaymentMeansCode>
+      
+    
+      <cbc:PaymentDueDate>2020-12-04</cbc:PaymentDueDate>
+      
+    
+      <cbc:PaymentID>9LT20105F9917520S</cbc:PaymentID>
+      
+  
+   </cac:PaymentMeans>
+   
+  
+   <cac:PaymentExchangeRate>
+      
+    
+      <cbc:SourceCurrencyCode>USD</cbc:SourceCurrencyCode>
+      
+    
+      <cbc:SourceCurrencyBaseRate>1.00</cbc:SourceCurrencyBaseRate>
+      
+    
+      <cbc:TargetCurrencyCode>COP</cbc:TargetCurrencyCode>
+      
+    
+      <cbc:TargetCurrencyBaseRate>1.00</cbc:TargetCurrencyBaseRate>
+      
+    
+      <cbc:CalculationRate>3466.50000</cbc:CalculationRate>
+      
+    
+      <cbc:Date>2020-12-04</cbc:Date>
+      
+  
+   </cac:PaymentExchangeRate>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="USD">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="USD">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="USD">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>03</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="USD">0.00</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="USD">0.00</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="USD">0.00</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>0.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>04</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:TaxTotal>
+      
+    
+      <cbc:TaxAmount currencyID="USD">7.98</cbc:TaxAmount>
+      
+    
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+      
+    
+      <cac:TaxSubtotal>
+         
+      
+         <cbc:TaxableAmount currencyID="USD">42.02</cbc:TaxableAmount>
+         
+      
+         <cbc:TaxAmount currencyID="USD">7.98</cbc:TaxAmount>
+         
+      
+         <cac:TaxCategory>
+            
+        
+            <cbc:Percent>19.0</cbc:Percent>
+            
+        
+            <cac:TaxScheme>
+               
+          
+               <cbc:ID>01</cbc:ID>
+               
+        
+            </cac:TaxScheme>
+            
+      
+         </cac:TaxCategory>
+         
+    
+      </cac:TaxSubtotal>
+      
+  
+   </cac:TaxTotal>
+   
+  
+   <cac:LegalMonetaryTotal>
+      
+    
+      <cbc:LineExtensionAmount currencyID="USD">42.02</cbc:LineExtensionAmount>
+      
+    
+      <cbc:TaxExclusiveAmount currencyID="USD">42.02</cbc:TaxExclusiveAmount>
+      
+    
+      <cbc:TaxInclusiveAmount currencyID="USD">50.00</cbc:TaxInclusiveAmount>
+      
+    
+      <cbc:AllowanceTotalAmount currencyID="USD">0.00</cbc:AllowanceTotalAmount>
+      
+    
+      <cbc:PayableAmount currencyID="USD">50.00</cbc:PayableAmount>
+      
+  
+   </cac:LegalMonetaryTotal>
+   
+  
+   <cac:InvoiceLine>
+      
+    
+      <cbc:ID>1</cbc:ID>
+      
+    
+      <cbc:InvoicedQuantity>2.0</cbc:InvoicedQuantity>
+      
+    
+      <cbc:LineExtensionAmount currencyID="USD">42.02</cbc:LineExtensionAmount>
+      
+    
+      <cac:TaxTotal>
+         
+      
+         <cbc:TaxAmount currencyID="USD">7.98</cbc:TaxAmount>
+         
+      
+         <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+         
+      
+         <cac:TaxSubtotal>
+            
+        
+            <cbc:TaxableAmount currencyID="USD">42.02</cbc:TaxableAmount>
+            
+        
+            <cbc:TaxAmount currencyID="USD">7.98</cbc:TaxAmount>
+            
+        
+            <cac:TaxCategory>
+               
+          
+               <cbc:Percent>19.00</cbc:Percent>
+               
+          
+               <cac:TaxScheme>
+                  
+            
+                  <cbc:ID>01</cbc:ID>
+                  
+          
+               </cac:TaxScheme>
+               
+        
+            </cac:TaxCategory>
+            
+      
+         </cac:TaxSubtotal>
+         
+    
+      </cac:TaxTotal>
+      
+    
+      <cac:Item>
+         
+      
+         <cbc:Description>Edición Software</cbc:Description>
+         
+      
+         <cbc:BrandName>rockscripts</cbc:BrandName>
+         
+      
+         <cbc:ModelName>rsdev</cbc:ModelName>
+         
+      
+         <cac:StandardItemIdentification>
+            
+        
+            <cbc:ID schemeAgencyID="10" schemeID="001">72212000-4</cbc:ID>
+            
+      
+         </cac:StandardItemIdentification>
+         
+    
+      </cac:Item>
+      
+    
+      <cac:Price>
+         
+      
+         <cbc:PriceAmount currencyID="USD">21.01</cbc:PriceAmount>
+         
+      
+         <cbc:BaseQuantity unitCode="HUR">1</cbc:BaseQuantity>
+         
+    
+      </cac:Price>
+      
+  
+   </cac:InvoiceLine>
+   
+
+</Invoice>

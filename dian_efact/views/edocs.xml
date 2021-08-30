@@ -77,6 +77,7 @@
                             <field name="create_date"/>
                             <field name="api_message"/>
                             <field name="dian_request_status" invisible="1"/>
+                            <field name="ad_response_api"/>                       
                         </group>
                         <group>
                             <field name="qr_image" nolabel="1" widget="image"/>                            

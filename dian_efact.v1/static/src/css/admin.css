@@ -1,0 +1,272 @@
+.o_main_navbar {
+    position: relative;
+    height: 46px;
+    border-bottom: 1px solid #5f5e97!important;
+    background-color: #7C7BAD!important;
+    color: white;
+}
+
+/*.o_main_navbar>ul>li>a,
+.o_main_navbar>ul>li>label {
+    background: #888!important;
+}*/
+
+.emission-container,
+.representantes {
+    padding: 10px;
+}
+
+.btn-custom-sunat {
+    background: #7c7bad;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 46%;
+    width: auto;
+    font-size: 22px;
+    height: auto;
+    height: 66px;
+    padding-left: 8px;
+    margin-left: 5px;
+    display: inline;
+    padding-right: 8px;
+}
+
+.btn-custom-sunat-grey {
+    background: #ccc;
+}
+
+.btn-custom-sunat:hover {
+    background: #7c7bad;
+    color: #eee;
+    opacity: 0.9;
+}
+
+.buttons-container {
+    height: 50px;
+    padding-top: 13px;
+}
+
+.representantes-form-container {
+    display: none;
+}
+
+.input-on-edit {
+    display: none;
+}
+
+.btn-smaller {
+    font-size: 12px;
+    padding: 5px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+.btn-red {
+    background: red;
+}
+
+.btn-actions {
+    display: table-row;
+    padding-top: 5px;
+}
+
+.field-box {
+    margin-bottom: 10px;
+}
+
+.representantes-form-container {
+    max-width: 380px;
+}
+
+.o_group_2_col {
+    min-width: 200px;
+    width: 50%!important;
+}
+
+.custom_input {
+    padding: 4px;
+    font-size: 13px;
+}
+
+.edocs-qrImage {
+    max-width: 100px;
+}
+
+span[name='qr_image'] {
+    display: none;
+}
+
+img[name='qr_image'] {
+    max-width: 100px;
+}
+
+.btn-emitir-edocs {
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.color-red {
+    color: red;
+    text-shadow: 1px 1px #888;
+}
+
+.color-orange {
+    color: orange;
+    text-shadow: 1px 1px #888;
+}
+
+.color-green {
+    color: green;
+    text-shadow: 1px 1px #888;
+}
+
+.status-requested-container {
+    font-size: 16px;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.edocs_tree_view .o_list_record_selector {
+    display: none;
+}
+
+.emission-container select,
+.emission-container textarea .emission-container input {
+    max-width: 300px;
+}
+
+.dian_vat_pos {
+    display: inline-grid;
+}
+
+.sunat-row {
+    padding: 10px;
+    text-align: left;
+}
+
+.segment-container {
+    max-width: 500px;
+    max-height: 400px;
+    overflow-y: overlay;
+}
+
+#sunat_segments tr {
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+}
+
+#sunat_segments tr:hover {
+    opacity: 0.8;
+    color: black;
+    cursor: pointer;
+}
+
+.families-container {
+    max-width: 500px;
+    max-height: 400px;
+    overflow-y: overlay;
+}
+
+#sunat_families tr {
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+}
+
+#sunat_families tr:hover {
+    opacity: 0.8;
+    color: black;
+    cursor: pointer;
+}
+
+#sunat_classes tr {
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+}
+
+#sunat_classes tr:hover {
+    opacity: 0.8;
+    color: black;
+    cursor: pointer;
+}
+
+#sunat_classes tr {
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+}
+
+#sunat_classes tr:hover {
+    opacity: 0.8;
+    color: black;
+    cursor: pointer;
+}
+
+#sunat_products tr {
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+}
+
+#sunat_products tr:hover {
+    opacity: 0.8;
+    color: black;
+    cursor: pointer;
+}
+
+.group-emision {
+    max-width: 500px;
+}
+
+.group-emision label {
+    font-weight: bold
+}
+
+.invoice-cancelled {
+    font-size: 13px;
+    color: #555;
+}
+
+.journal-container-custom {
+    display: none;
+}
+
+.selector_sunat_product_code {
+    margin-top: 14px;
+}
+
+.dian_product_code {
+    display: none;
+}
+
+.go-rues {
+    margin-left: -1px;
+    margin-top: -5px;
+    margin-bottom: 12px;
+}
+
+a[data-menu-xmlid="website.menu_website_add_features"] {
+    display: none;
+}
+
+button.js_website {
+    display: none;
+}
+
+.tab-content>#tab-pane table:last-child {
+    display: none;
+}
+
+input[name='vat_dv'] {
+    width: 36px!important
+}
+.dian-municipio
+{
+    max-width: 139px;
+    padding: 1px;
+    margin-right: 3px;
+}
+

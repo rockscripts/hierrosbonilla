@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<AttachedDocument xmlns="urn:oasis:names:specification:ubl:schema:xsd:AttachedDocument-2" 
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
+    xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2" 
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" 
+    xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" 
+    xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#">
+    <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+    <cbc:CustomizationID>Documentos adjuntos</cbc:CustomizationID>
+    <cbc:ProfileID>Factura ELectrónica de Venta</cbc:ProfileID>
+    <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+    <cbc:ID>56</cbc:ID>
+    <cbc:IssueDate></cbc:IssueDate>
+    <cbc:IssueTime></cbc:IssueTime>
+    <cbc:DocumentType>Contenedor de Factura Electrónica</cbc:DocumentType>
+    <cbc:ParentDocumentID></cbc:ParentDocumentID>
+    <cac:SenderParty> </cac:SenderParty>
+    <cac:ReceiverParty></cac:ReceiverParty>
+    <cac:Attachment></cac:Attachment>
+</AttachedDocument>

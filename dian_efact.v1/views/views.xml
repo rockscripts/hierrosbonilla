@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="invoice_form_inherit" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_info']" position="after">
+                    <page string="DIAN e-Fact" name='e_fact'>
+                        <div class="status-requested-container">
+                            <div class="status-requested-element ok color-green nodisplay">
+                                <i class="fa fa-check-circle "></i> Emitida
+                            
+                            
+                            </div>
+                            <div class="status-requested-element fail color-orange nodisplay">
+                                <i class="fa fa-exclamation-triangle "></i> Fallida
+                            
+                            
+                            
+                            
+                            </div>
+                            <div class="status-requested-element not_requested color-red nodisplay">
+                                <i class="fa fa-ban"></i> Sin emitir
+                            
+                            
+                            </div>
+                        </div>
+                        <group>
+                            <field name="api_message" string='Estado' placeholder='Documento contable sin emitir'/>
+                            <field name="is_exportation" string='¿Tipo exportacion?'  attrs="{'readonly':['|',('state','=','paid'),('state','=','open')]}"/>
+                            <field name="calculation_rate" string='Tasa de Cambio' placeholder='TRM o tasa 0.00030'  attrs="{'invisible':[('is_exportation','=',False)],'required':[('is_exportation','=',True)],'readonly':['|',('state','=','paid'),('state','=','open')]}" style="max-width:200px"/>
+                            <field name="exporting_currency" string='Divisa Objetivo'   attrs="{'invisible':[('is_exportation','=',False)],'readonly':['|',('state','=','paid'),('state','=','open')]}" style="max-width:200px"/>
+                            <field name="discrepance_text" attrs="{'invisible':[('discrepance_text','=','')]}"/>
+                            <field name="dian_request_status" class="dian_request_status" invisible="1"/>
+                            <field name="qr_url" widget ="url" class="cufe_url"/>
+                            <!--
+                                <field name="signed_document" attrs="{'invisible':[('signed_document','=',None)]}"/><field name="unsigned_document" attrs="{'invisible':[('unsigned_document','=',None)]}"/><field name="response_document" attrs="{'invisible':[('response_document','=',None)]}"/>
+                            -->
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="dian_payment_means_code" class="o_required_modifier"/> 
+                    <field name="dian_payment_means_id" class="o_required_modifier"/>                   
+                    <field name="dian_operation_type" class="o_required_modifier"/>
+                    <field name="reference" position="move" />
+                </xpath>
+            </field>
+        </record>
+        <record id="view_account_invoice_refund_inherit" model="ir.ui.view">
+            <field name="name">account.invoice.refund.form</field>
+            <field name="model">account.invoice.refund</field>
+            <field name="inherit_id" ref="account.view_account_invoice_refund" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/footer/button[@name='invoice_refund']" position="replace">
+                    <button string='Agregar Nota' name="invoice_refund" type="object" class="btn-primary"/>
+                </xpath>
+                <xpath expr="/form/group/group/field[@name='filter_refund']" position="replace">
+                    <field name="filter_refund" attrs="{'invisible': [('refund_only','=',True)]}" widget="radio" string="Método" invisible="1"/>
+                </xpath>
+                <xpath expr="/form/group/group/field[@name='filter_refund']" position="after">
+                    <field name="dian_note" string="Nota" />
+                </xpath>
+                <xpath expr="/form/group/group/field[@name='dian_note']" position="after">
+                    <field name="credit_discrepance" string="Discrepancia"  attrs="{'invisible':[('dian_note','=','08')]}"/>
+                </xpath>
+                <xpath expr="/form/group/group/field[@name='dian_note']" position="after">
+                    <field name="debit_discrepance" string="Discrepancia"  attrs="{'invisible':[('dian_note','=','07')]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="res_company_form_inherit">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="DIAN e-Fact" name="geo_location">
+                        <group class="group-emision">
+                            <div class="emission-container">
+                                <h1>Software</h1>
+                                <label for="dian_emisor_nit"/>
+                                <div>
+                                    <field name="dian_emisor_nit" string="NIT del propietario"/>
+                                </div>
+                                <label for="dian_emisor_username"/>
+                                <div>
+                                    <field name="dian_emisor_username" string="Identificador"/>
+                                </div>
+                                <label for="dian_emisor_password"/>
+                                <div>
+                                    <field name="dian_emisor_password" string="PIN"/>
+                                </div>
+                                <label for="dian_emisor_clave_tecnica"/>
+                                <div>
+                                    <field name="dian_emisor_clave_tecnica" string="Clave Técnica"/>
+                                </div>
+                                <label for="dian_test_set_id"/>
+                                 <div>
+                                    <field  name="dian_test_set_id" string='Test Set Id'/>
+                                </div>
+                                <label for="dian_xml_client_path"/>
+                                <div>
+                                    <field name="dian_xml_client_path" string="NIT / Nombre usuario" placeholder="1234567/rockscripts" />
+                                </div>
+                                <label for="dian_api_mode"/>
+                                <div>
+                                    <field name="dian_api_mode" string="Modo Servicio"/>
+                                </div>
+                                <label for="dian_request_type"/>
+                                <div>
+                                    <field name="dian_request_type" string="Tipo de Emisión"/>
+                                </div>
+                                <label for="dian_certificate"/>
+                                 <div>
+                                    <field  name="dian_certificate" string='Certificado' filename="dian_certificate_filename"/>
+                                    <field name="dian_certificate_filename" invisible="1"/>
+                                </div>
+                                <label for="dian_certificado_contrasena"/>
+                                 <div>
+                                    <field  name="dian_certificado_contrasena" string='Crt. Contraseña'/>
+                                </div>
+                            </div>
+                        </group>
+                        <group class="group-emision">
+                            <div class="emission-container">
+                                <h1>Resolución</h1>
+                                <label for="dian_numero_resolucion"/>
+                                <div>
+                                    <field name="dian_numero_resolucion" string="Número"/>
+                                </div>
+                                <label for="dian_fecha_inicio_resolucion"/>
+                                <div>
+                                    <field name="dian_fecha_inicio_resolucion" string="Fecha Inicio" placeholder="2018-07-11"/>
+                                </div>
+                                <label for="dian_fecha_fin_resolucion"/>
+                                <div>
+                                    <field name="dian_fecha_fin_resolucion" string="Fecha Fin" placeholder="2022-07-11"/>
+                                </div>
+                                <label for="dian_prefijo_resolucion_periodo"/>
+                                <div>
+                                    <field name="dian_prefijo_resolucion_periodo" string="Prefijo" placeholder="PRUE"/>
+                                </div>
+                                <label for="dian_desde_resolucion_periodo"/>
+                                <div>
+                                    <field name="dian_desde_resolucion_periodo" string="" placeholder="00000001"/>
+                                </div>
+                                <label for="dian_hasta_resolucion_periodo"/>
+                                <div>
+                                    <field name="dian_hasta_resolucion_periodo" string="" placeholder=""/>
+                                </div>
+                            </div>
+                        </group>
+                    </page>
+                </xpath>
+               <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string='' placeholder="" class="res_partner_name"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="replace">
+                     <field name="city" string='Ciudad' invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="after">
+                     <field name="dian_municipio" string='Municipio' placeholder="Seleccionar" class="dian-municipio"  invisible="1"/>                                          
+                </xpath>
+                <xpath expr="//field[@name='state_id']" position="replace">
+                     <field name="country_id" position="move" />
+                     <field name="state_id" string='Departamento' placeholder="Departamento / Estado"/>
+                     <field name="district_id" string='Municipio / Districto' placeholder="Municipio / Districto" class="dian-districto"/>
+                </xpath> 
+            </field>
+        </record>
+        <record id="account_invoice_form_view" model="ir.ui.view">
+            <field name="name">account.invoice.form.view</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <h1 class="mt0" position="after">
+                    <div class="oe_button_box">
+                        <field name="qr_image" widget="image" width="100" height="100"/>
+                    </div>
+                </h1>
+            </field>
+        </record>
+        <record id="delivery_form_view_extend" model="ir.ui.view">
+            <field name="name">delivery.carrier.form.view</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <div>
+                        <field name="nit" string="NIT" placeholder="NIT"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_picking_withcarrier_out_form_extended" model="ir.ui.view">
+            <field name="name">delivery.stock.picking_withcarrier.form.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='note']" position="after">
+                    <page string="DIAN e-Fact" name='e_fact'>
+                        <group>
+                            <field name="api_message" string='Estado' placeholder='Documento contable sin emitir'/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_company_form_dian" model="ir.ui.view">
+            <field name="name">dian.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="before">    
+                                  
+                    <field name="dian_tipo_documento" string='Tipo Documento' default="31"/>                   
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="before">
+                    <field name="dian_regimen" string='Régimen' default="00"/>                     
+                </xpath>
+            </field>
+        </record>
+        <record id="view_company_form_dian" model="ir.ui.view">
+            <field name="name">dian.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="before">
+                    <field name="dian_regimen" string='Régimen'/>
+                    <field name="dian_responsabilidades" string='Responsabilidad Físcal' default="0-12"/>
+		    <field name="dian_es_autoretenedor" string='¿Es Autorretenedor?'/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="before">
+                    <field name="dian_tipo_persona" string='Tipo Persona' default="1"/>
+                    <field name="dian_tipo_documento" string='Tipo Documento'/>
+		    <field name="vat" string='ID / NIT' placeholder="" class="res_partner_vat"/>
+                    <field name="dian_ciiu" string='CIIU(s)' placeholder="6201;6202"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <button class="go-rues">
+                        <a href="https://muisca.dian.gov.co/WebRutMuisca/DefConsultaEstadoRUT.faces" target="_blank">
+                            <i class="fa fa-info-circle"></i> Consultar
+                        </a>
+                    </button>                  
+                </xpath>                
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string='' placeholder="" class="res_partner_name"/>
+                </xpath>
+                <xpath expr="//field[@name='company_registry']" position="replace">
+                    <field name="dian_matricula" string='Matricula Mercantil'  class="res_partner_matricula"/>
+                </xpath>
+                <xpath expr="//field[@name='dian_matricula']" position="before">
+                     <field name="vat_dv" string='DV' placeholder="" invisible="1"/>
+                     <field name="id" invisible="1"/>  
+                </xpath>
+                
+            </field>
+        </record>
+        <record id="view_partner_form_dian" model="ir.ui.view">
+            <field name="name">dian.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='l10n_co_document_type']" position="before">
+                    <field name="id" id="partner_id_vat" invisible="1"/>
+                    <field name="dian_tipo_persona" string='Tipo Persona' default="1"/>
+                    <field name="dian_regimen" string='Régimen' default="00"/>
+                    <field name="dian_responsabilidades" string='Responsabilidad Físcal' default="0-49"/>
+                </xpath>
+                <xpath expr="//field[@name='l10n_co_document_type']" position="replace">
+                    <field name="dian_tipo_documento" string='Tipo Documento' default="31"/>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="replace">
+                    <field name="street2" string='Barrio / Sector' placeholder="Barrio / Sector"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="dian_matricula" string='Matricula Mercantil' placeholder="" class="res_partner_matricula"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="replace">
+                    <field name="vat" string='ID / NIT' placeholder="" class="res_partner_vat"/>
+                    
+                    <button class="go-rues">
+                        <a href="https://muisca.dian.gov.co/WebRutMuisca/DefConsultaEstadoRUT.faces" target="_blank">
+                            <i class="fa fa-info-circle"></i> Consultar
+                        
+                        
+                        
+                        </a>
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='dian_matricula']" position="before">
+                     <field name="vat_dv" string='DV' placeholder=""  invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string='' placeholder="" class="res_partner_name"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="replace">
+                     <field name="city" string='Ciudad' invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="after">
+                     <field name="dian_municipio" string='Municipio' placeholder="Seleccionar" class="dian-municipio"  invisible="1"/>                                          
+                </xpath>
+                <xpath expr="//field[@name='state_id']" position="replace">
+                     <field name="country_id" position="move" />
+                     <field name="state_id" string='Departamento' placeholder="Departamento / Estado"/>
+                     <field name="district_id" string='Municipio / Districto' placeholder="Municipio / Districto" class="dian-districto"/>
+                </xpath>                
+            </field>
+        </record>
+        <record id="account_tax_form_dian_tributo" model="ir.ui.view">
+            <field name="name">account.tax.form.dian.tributo</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//page" position="after">
+                        <page string="DIAN e-Fact" name="dian_tax">
+                            <group class="o_group_2_col">
+                                <field name="dian_tributo" string='Dian Tributo' class="o_input o_field_widget o_required_modifier custom_input"/>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+       
+        <record id="dian_product_tpl_form" model="ir.ui.view">
+            <field name="name">product.template.purchase.button.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="DIAN e-Fact" name='e_fact'>
+                        <table>
+                            <tr class="">
+                                <td>
+                                    <label for="dian_brand_name"/>
+                                    <field name="dian_brand_name" string='Marca' id="dian_brand_name" class="" />
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr class="">
+                                <td>
+                                    <label for="dian_item_model"/>
+                                    <field name="dian_item_model" string='Modelo' id="dian_item_model" class="" />
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr class="dian_product_code">
+                                <td>
+                                    <label for="sunat_product_code"/>
+                                    <field name="sunat_product_code" string='Código Producto(opcional)' id="sunat_product_code" class="ItemClassificationCode"/>
+                                </td>
+                                <td>
+                                    <i class="selector_sunat_product_code fa fa-external-link btn btn-secondary "></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="dian_is_product_discount"/>
+                                    <field name="dian_is_product_discount" string='¿Producto descuento?' id="dian_is_product_discount" class="IsProductDiscount" />
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr  attrs="{'invisible':[('dian_is_product_discount','=',False)],'required':[('dian_is_product_discount','=',True)]}">
+                                <td>
+                                    <label for="dian_discount_type"/>
+                                    <field name="dian_discount_type" string='Tipo Descuento' id="dian_discount_type" class="DianDiscountType"/>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="dian_ir_cron_view_form" model="ir.ui.view">
+            <field name="name">ir.cron.view.form.inherit</field>
+            <field name="model">ir.cron</field>
+            <field name="inherit_id" ref="base.ir_cron_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="DIAN e-Fact" name='e_fact'>
+                        <label for="dian_start_date"></label>
+                        <field name="dian_start_date" string="Desde la fecha"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="dian_account_journal_view_form" model="ir.ui.view">
+            <field name="name">account.journal.view.form.inherit</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sequence_id']" position="replace">
+                  <field name="sequence_id" required="0" attrs="{'readonly': 1}"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <!--Multicompany-->
+        <record id="current_company_vendors" model="ir.rule">
+            <field name="name">Current Company Partners</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('company_id','child_of',user.company_id.id)]</field>
+        </record>
+        <record model='ir.ui.view' id='view_res_partner_filter'>
+            <field name='name'>res.partner.select.inherit.base.partner.filter</field>
+            <field name='model'>res.partner</field>
+            <field name='inherit_id' ref='base.view_res_partner_filter'/>
+            <field name='arch' type='xml'>
+                <field name="name" position="after">
+                    <filter string="Mi Compañia" name="my_company" domain="[('child_ids', '!=', False)]" help="Mi compañia"/>
+                </field>
+            </field>
+        </record>
+        <record id="dian_res_users_form" model="ir.ui.view">
+            <field name="name">res.users.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.user_groups_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" class="dian-style"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_restablecer_documento" model="ir.actions.server">
+            <field name="name">Restablecer documento</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_account_invoice" />
+            <field name="binding_model_id" ref="model_account_invoice" />
+            <field name="state">code</field>
+            <field name="code">action = records.restablecer_documento()</field>
+        </record>
+
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.partner</value>
+            <value eval="[
+                'name', 'phone', 'email',
+                'city', 'zip', 'street', 'street2', 'state_id', 'country_id',
+                'vat', 'company_name', 'district_id','mobile','dian_tipo_documento','partner_id'
+            ]"/>
+        </function>
+
+         <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.company</value>
+            <value eval="[
+                'name', 'phone', 'email',
+                'city', 'zip', 'street', 'street2', 'state_id', 'country_id',
+                'vat', 'company_name', 'district_id','mobile','dian_tipo_documento','partner_id'
+            ]"/>
+        </function>
+
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>sale.order</value>
+            <value eval="['journal_id']"/>
+        </function>
+        <!--  make invisible some menu itms for multicompany
+        <record id="make_invisible" model="res.groups" >
+            <field name="name_invisible">Invisible Dian Multicompany</field>
+        </record>
+        <record model="ir.ui.menu" id="base.menu_administration">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
+        <record model="ir.ui.menu" id="base.menu_management">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
+        <record model="ir.ui.menu" id="account.menu_action_currency_form">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
+        
+        
+       <menuitem id="dian_edocs_menu_company" action="base.action_res_company_form" name="Compañias" sequence="451"/>
+       <menuitem id="dian_edocs_menu_users" action="base.action_res_users" name="Usuarios" sequence="452"/>-->
+
+       
+        <!--EOF Multicompany-->
+        <!--REQUIRED-->
+        
+    </data>
+</odoo>

@@ -40,6 +40,7 @@ class mail_template(models.Model):
             #with open('/odoo_dian_v12/custom/addons/dian_efact/log.json', 'w') as outfile:
             #    json.dump(getattr(e, 'message', repr(e))+" ON LINE "+format(sys.exc_info()[-1].tb_lineno), outfile)
             exc_traceback = sys.exc_info()
+            
             try:
                 
                 for res_id, template in self.get_email_template(res_ids).items():
